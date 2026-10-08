@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Е Н Е Р Г І Я — Комплексна енергоавтономія та опалення</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+    body { background-color: #0F172A; color: #F8FAFC; padding-bottom: 40px; }
+    
+    /* Header */
+    header { background-color: #1E293B; border-bottom: 1px solid #334155; padding: 15px 20px; text-align: center; }
+    .logo { font-size: 22px; font-weight: 800; letter-spacing: 6px; color: #F59E0B; text-transform: uppercase; margin-bottom: 4px; }
+    .tagline { font-size: 11px; color: #94A3B8; }
+    
+    .contact-bar { margin-top: 12px; display: flex; justify-content: center; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .phone-btn { background-color: #F59E0B; color: #0F172A; padding: 8px 14px; border-radius: 20px; font-weight: bold; text-decoration: none; font-size: 13px; }
+    .tg-link { color: #38BDF8; font-size: 13px; text-decoration: none; font-weight: 600; }
+    
+    .container { max-width: 1000px; margin: 0 auto; padding: 0 15px; }
+    
+    .section-title { font-size: 16px; font-weight: bold; color: #F59E0B; margin: 25px 0 12px 0; text-align: center; text-transform: uppercase; letter-spacing: 1px; }
+
+    /* Category Navigation Tiles */
+    .grid-cats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-bottom: 25px; }
+    .cat-btn { background: #1E293B; border: 1px solid #334155; border-radius: 10px; padding: 12px 10px; text-align: center; text-decoration: none; color: #F8FAFC; transition: 0.2s; }
+    .cat-btn:active { border-color: #F59E0B; background: #26334D; }
+    .cat-title { font-size: 12px; font-weight: bold; display: block; margin-bottom: 4px; }
+    .cat-price { font-size: 11px; color: #F59E0B; font-weight: 600; }
+
+    /* Main Showcase Cards */
+    .grid-showcase { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 15px; }
+    .card { background: #1E293B; border: 1px solid #334155; border-radius: 12px; overflow: hidden; }
+    .card-img-placeholder { height: 160px; background: #334155; display: flex; align-items: center; justify-content: center; font-size: 40px; }
+    .card-body { padding: 15px; text-align: center; }
+    .card-h3 { font-size: 16px; font-weight: bold; margin-bottom: 6px; color: #F8FAFC; }
+    .card-desc { font-size: 12px; color: #94A3B8; margin-bottom: 10px; }
+    .card-price { font-size: 14px; font-weight: bold; color: #F59E0B; margin-bottom: 12px; }
+    .action-btn { display: inline-block; width: 100%; background: #F59E0B; color: #0F172A; text-decoration: none; font-weight: bold; padding: 10px; border-radius: 8px; font-size: 13px; }
+
+    /* Footer */
+    footer { margin-top: 40px; border-top: 1px solid #334155; padding-top: 20px; text-align: center; font-size: 12px; color: #94A3B8; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Е Н Е Р Г І Я</div>
+    <div class="tagline">Повний комплекс енергетичної автономії, опалення та водопостачання</div>
+    <div class="contact-bar">
+      <a href="tel:+380935654438" class="phone-btn">📞 +38 093 565 4438</a>
+      <a href="https://t.me/+380935654438" class="tg-link">💬 Написати в Telegram</a>
+    </div>
+  </header>
+
+  <div class="container">
+    
+    <div class="section-title">Категорії обладнання</div>
+    <div class="grid-cats">
+      <a href="#boilers" class="cat-btn">
+        <span class="cat-title">📂 КАТАЛОГ ВОДОНАГРІВАЧІВ</span>
+        <span class="cat-price">від 13 158 грн / 258 €</span>
+      </a>
+      <a href="#boilers" class="cat-btn">
+        <span class="cat-title">♨️ БОЙЛЕРИ DRAŽICE</span>
+        <span class="cat-price">від 13 158 грн / 258 €</span>
+      </a>
+      <a href="#heating" class="cat-btn">
+        <span class="cat-title">🔥 ОПАЛЮВАЛЬНІ КОТЛИ</span>
+        <span class="cat-price">від 32 000 грн</span>
+      </a>
+      <a href="#generators" class="cat-btn">
+        <span class="cat-title">⚡ ГЕНЕРАТОРИ & СТАНЦІЇ</span>
+        <span class="cat-price">від 18 500 грн</span>
+      </a>
+      <a href="#tanks" class="cat-btn">
+        <span class="cat-title">🛢️ БАКИ-НАКОПИЧУВАЧІ</span>
+        <span class="cat-price">від 21 000 грн</span>
+      </a>
+      <a href="#parts" class="cat-btn">
+        <span class="cat-title">🔧 ТЕНИ ТА ЗАПЧАСТИНИ</span>
+        <span class="cat-price">від 1 200 грн</span>
+      </a>
+    </div>
+
+    <div class="section-title">Основні рішення для дому</div>
+    <div class="grid-showcase">
+      
+      <div class="card" id="boilers">
+        <div class="card-img-placeholder">♨️</div>
+        <div class="card-body">
+          <div class="card-h3">Водонагрівачі Dražice</div>
+          <div class="card-desc">Закритий керамічний ТЕН в емальованій гільзі. Настінні, плоскі OKHE ONE та SMART-моделі.</div>
+          <div class="card-price">від 13 158 грн / 258 €</div>
+          <a href="https://t.me/+380935654438" class="action-btn">Підібрати в Telegram</a>
+        </div>
+      </div>
+
+      <div class="card" id="heating">
+        <div class="card-img-placeholder">🔥</div>
+        <div class="card-body">
+          <div class="card-h3">Опалювальні Котли</div>
+          <div class="card-desc">Твердопаливні, пелетні та газові системи для обігріву приватного будинку.</div>
+          <div class="card-price">від 32 000 грн</div>
+          <a href="https://t.me/+380935654438" class="action-btn">Консультація з опалення</a>
+        </div>
+      </div>
+
+      <div class="card" id="generators">
+        <div class="card-img-placeholder">⚡</div>
+        <div class="card-body">
+          <div class="card-h3">Генератори & Станції</div>
+          <div class="card-desc">Інверторні, дизельні та бензинові генератори, а також зарядні станції.</div>
+          <div class="card-price">від 18 500 грн</div>
+          <a href="https://t.me/+380935654438" class="action-btn">Замовити розрахунок</a>
+        </div>
+      </div>
+
+    </div>
+
+    <footer>
+      <p>© 2026 <b>Е Н Е Р Г І Я</b>. Всі права захищено.</p>
+      <p style="margin-top: 5px;">Телефон / Telegram: +38 093 565 4438 | info@energiya.ua</p>
+    </footer>
+
+  </div>
+
+</body>
+</html>
