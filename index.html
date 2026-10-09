@@ -3,686 +3,264 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Е Н Е Р Г І Я — Комплексна енергоавтономія та опалення</title>
+  <title>Е Н Е Р Г І Я — Опалювальне та Енергетичне Обладнання</title>
+  <!-- Сучасний шрифт Inter з Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
-    body { background-color: #0F172A; color: #F8FAFC; padding-bottom: 40px; }
-    
+    :root {
+      --bg-dark: #0B1120;
+      --bg-surface: #1E293B;
+      --bg-card: rgba(30, 41, 59, 0.7);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(245, 158, 11, 0.4);
+      --primary: #F59E0B;
+      --primary-hover: #D97706;
+      --primary-glow: rgba(245, 158, 11, 0.25);
+      --text-main: #F8FAFC;
+      --text-muted: #94A3B8;
+      --accent-blue: #38BDF8;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg-dark);
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(245, 158, 11, 0.05) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(56, 189, 248, 0.05) 0px, transparent 50%);
+      color: var(--text-main);
+      line-height: 1.5;
+      padding-bottom: 60px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
     /* Header */
-    header { background-color: #1E293B; border-bottom: 1px solid #334155; padding: 15px 20px; text-align: center; }
-    .logo { font-size: 22px; font-weight: 800; letter-spacing: 6px; color: #F59E0B; text-transform: uppercase; margin-bottom: 4px; }
-    .tagline { font-size: 11px; color: #94A3B8; }
-    
-    .contact-bar { margin-top: 12px; display: flex; justify-content: center; align-items: center; gap: 10px; flex-wrap: wrap; }
-    .phone-btn { background-color: #F59E0B; color: #0F172A; padding: 8px 14px; border-radius: 20px; font-weight: bold; text-decoration: none; font-size: 13px; }
-    .tg-link { color: #38BDF8; font-size: 13px; text-decoration: none; font-weight: 600; }
-    
-    .container { max-width: 1000px; margin: 0 auto; padding: 0 15px; }
-    
-    .section-title { font-size: 16px; font-weight: bold; color: #F59E0B; margin: 25px 0 12px 0; text-align: center; text-transform: uppercase; letter-spacing: 1px; }
+    header {
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky; top: 0; z-index: 100;
+      padding: 16px 20px;
+    }
 
-    /* Category Navigation Tiles */
-    .grid-cats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-bottom: 25px; }
-    .cat-btn { background: #1E293B; border: 1px solid #334155; border-radius: 10px; padding: 12px 10px; text-align: center; text-decoration: none; color: #F8FAFC; transition: 0.2s; }
-    .cat-btn:active { border-color: #F59E0B; background: #26334D; }
-    .cat-title { font-size: 12px; font-weight: bold; display: block; margin-bottom: 4px; }
-    .cat-price { font-size: 11px; color: #F59E0B; font-weight: 600; }
+    .header-content {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; flex-direction: column; align-items: center; gap: 12px;
+    }
 
-    /* Main Showcase Cards */
-    .grid-showcase { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 15px; }
-    .card { background: #1E293B; border: 1px solid #334155; border-radius: 12px; overflow: hidden; }
-    .card-img-placeholder { height: 160px; background: #334155; display: flex; align-items: center; justify-content: center; font-size: 40px; }
-    .card-body { padding: 15px; text-align: center; }
-    .card-h3 { font-size: 16px; font-weight: bold; margin-bottom: 6px; color: #F8FAFC; }
-    .card-desc { font-size: 12px; color: #94A3B8; margin-bottom: 10px; }
-    .card-price { font-size: 14px; font-weight: bold; color: #F59E0B; margin-bottom: 12px; }
-    .action-btn { display: inline-block; width: 100%; background: #F59E0B; color: #0F172A; text-decoration: none; font-weight: bold; padding: 10px; border-radius: 8px; font-size: 13px; }
+    @media (min-width: 768px) {
+      .header-content { flex-direction: row; justify-content: space-between; }
+      .brand { text-align: left; }
+    }
 
-    /* Footer */
-    footer { margin-top: 40px; border-top: 1px solid #334155; padding-top: 20px; text-align: center; font-size: 12px; color: #94A3B8; }
+    .logo {
+      font-size: 24px; font-weight: 900; letter-spacing: 6px;
+      background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      text-transform: uppercase; line-height: 1.2;
+    }
+
+    .tagline { font-size: 12px; color: var(--text-muted); font-weight: 500; }
+
+    .contact-bar { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; justify-content: center; }
+
+    .phone-btn {
+      background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+      color: #0F172A; padding: 10px 18px; border-radius: var(--radius-lg);
+      font-weight: 700; font-size: 14px; display: inline-flex; align-items: center; gap: 8px;
+      box-shadow: 0 4px 14px var(--primary-glow); transition: var(--transition);
+    }
+    .phone-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4); }
+
+    .tg-link {
+      background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.3);
+      color: var(--accent-blue); padding: 9px 16px; border-radius: var(--radius-lg);
+      font-size: 14px; font-weight: 600; display: inline-flex; align-items: center; gap: 8px;
+      transition: var(--transition);
+    }
+    .tg-link:hover { background: rgba(56, 189, 248, 0.2); border-color: var(--accent-blue); transform: translateY(-2px); }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+    .section-title {
+      font-size: 20px; font-weight: 800; color: var(--text-main);
+      margin: 35px 0 16px 0; display: flex; align-items: center; gap: 10px;
+    }
+    .section-title::after {
+      content: ''; flex: 1; height: 1px;
+      background: linear-gradient(90deg, var(--border-color) 0%, transparent 100%);
+    }
+
+    /* Trust Badges */
+    .features-bar { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 25px; }
+    .feature-item {
+      background: var(--bg-card); border: 1px solid var(--border-color);
+      border-radius: var(--radius-md); padding: 12px 16px;
+      display: flex; align-items: center; gap: 12px; font-size: 13px; color: var(--text-muted);
+    }
+    .feature-item span b { color: var(--text-main); display: block; }
+
+    /* Category Grid */
+    .grid-cats { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
+    .cat-btn {
+      background: var(--bg-card); border: 1px solid var(--border-color);
+      border-radius: var(--radius-md); padding: 16px 14px; transition: var(--transition);
+    }
+    .cat-btn:hover { border-color: var(--primary); transform: translateY(-3px); box-shadow: 0 8px 24px -6px rgba(0,0,0,0.5); }
+    .cat-title { font-size: 13px; font-weight: 700; color: var(--text-main); margin-bottom: 8px; display: block; }
+    .cat-price { font-size: 12px; color: var(--primary); font-weight: 600; }
+
+    /* Showcase Cards */
+    .grid-showcase { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+    .card {
+      background: var(--bg-card); border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg); overflow: hidden; display: flex; flex-direction: column;
+      transition: var(--transition); backdrop-filter: blur(10px);
+    }
+    .card:hover {
+      border-color: var(--border-hover); transform: translateY(-5px);
+      box-shadow: 0 16px 32px -10px rgba(0, 0, 0, 0.6), 0 0 20px var(--primary-glow);
+    }
+
+    .card-img-wrapper {
+      position: relative; width: 100%; height: 200px;
+      background: #151D2A; overflow: hidden; display: flex; align-items: center; justify-content: center;
+    }
+    .card-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+    .card:hover .card-img { transform: scale(1.05); }
+    .card-img-fallback { font-size: 48px; display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; }
+
+    .card-badge {
+      position: absolute; top: 12px; left: 12px; background: rgba(15, 23, 42, 0.85);
+      border: 1px solid var(--border-color); backdrop-filter: blur(8px);
+      color: var(--primary); font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 20px;
+    }
+
+    .card-body { padding: 20px; display: flex; flex-direction: column; flex-grow: 1; }
+    .card-h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; color: var(--text-main); }
+    .card-desc { font-size: 13px; color: var(--text-muted); margin-bottom: 16px; flex-grow: 1; }
+    .card-footer { margin-top: auto; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.05); display: flex; flex-direction: column; gap: 12px; }
+    .card-price-label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; }
+    .card-price { font-size: 18px; font-weight: 800; color: var(--primary); }
+
+    .action-btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%;
+      background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%); color: #0F172A;
+      font-weight: 700; padding: 12px; border-radius: var(--radius-md); font-size: 14px; transition: var(--transition);
+    }
+    .action-btn:hover { background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 100%); box-shadow: 0 6px 18px rgba(245, 158, 11, 0.4); }
+
+    footer { margin-top: 60px; border-top: 1px solid var(--border-color); padding: 30px 20px 10px 20px; text-align: center; font-size: 13px; color: var(--text-muted); }
   </style>
 </head>
 <body>
 
   <header>
-    <div class="logo">Е Н Е Р Г І Я</div>
-    <div class="tagline">Повний комплекс енергетичної автономії, опалення та водопостачання</div>
-    <div class="contact-bar">
-      <a href="tel:+380935654438" class="phone-btn">📞 +38 093 565 4438</a>
-      <a href="https://t.me/+380935654438" class="tg-link">💬 Написати в Telegram</a>
+    <div class="header-content">
+      <div class="brand">
+        <div class="logo">Е Н Е Р Г І Я</div>
+        <div class="tagline">Центр опалювального та енергетичного обладнання</div>
+      </div>
+      <div class="contact-bar">
+        <a href="tel:+380935654438" class="phone-btn"><span>📞</span> +38 093 565 4438</a>
+        <a href="https://t.me/+380935654438" target="_blank" class="tg-link"><span>💬</span> Telegram Консультація</a>
+      </div>
     </div>
   </header>
 
   <div class="container">
-    
+
+    <div class="features-bar">
+      <div class="feature-item"><span>🛡️</span><span><b>Офіційна гарантія</b> Від виробників</span></div>
+      <div class="feature-item"><span>🚚</span><span><b>Швидка доставка</b> По всій Україні</span></div>
+      <div class="feature-item"><span>📐</span><span><b>Професійний підбір</b> Інженерні розрахунки</span></div>
+    </div>
+
     <div class="section-title">Категорії обладнання</div>
     <div class="grid-cats">
-      <a href="#boilers" class="cat-btn">
-        <span class="cat-title">📂 КАТАЛОГ ВОДОНАГРІВАЧІВ</span>
-        <span class="cat-price">від 13 158 грн / 258 €</span>
-      </a>
-      <a href="#boilers" class="cat-btn">
-        <span class="cat-title">♨️ БОЙЛЕРИ DRAŽICE</span>
-        <span class="cat-price">від 13 158 грн / 258 €</span>
-      </a>
-      <a href="#heating" class="cat-btn">
-        <span class="cat-title">🔥 ОПАЛЮВАЛЬНІ КОТЛИ</span>
-        <span class="cat-price">від 32 000 грн</span>
-      </a>
-      <a href="#generators" class="cat-btn">
-        <span class="cat-title">⚡ ГЕНЕРАТОРИ & СТАНЦІЇ</span>
-        <span class="cat-price">від 18 500 грн</span>
-      </a>
-      <a href="#tanks" class="cat-btn">
-        <span class="cat-title">🛢️ БАКИ-НАКОПИЧУВАЧІ</span>
-        <span class="cat-price">від 21 000 грн</span>
-      </a>
-      <a href="#parts" class="cat-btn">
-        <span class="cat-title">🔧 ТЕНИ ТА ЗАПЧАСТИНИ</span>
-        <span class="cat-price">від 1 200 грн</span>
-      </a>
+      <a href="#boilers" class="cat-btn"><span class="cat-title">📂 КАТАЛОГ ВОДОНАГРІВАЧІВ</span><span class="cat-price">від 13 158 грн / 258 €</span></a>
+      <a href="#boilers" class="cat-btn"><span class="cat-title">♨️ БОЙЛЕРИ DRAŽICE</span><span class="cat-price">від 13 158 грн / 258 €</span></a>
+      <a href="#heating" class="cat-btn"><span class="cat-title">🔥 ОПАЛЮВАЛЬНІ КОТЛИ</span><span class="cat-price">від 32 000 грн</span></a>
+      <a href="#generators" class="cat-btn"><span class="cat-title">⚡ ГЕНЕРАТОРИ & СТАНЦІЇ</span><span class="cat-price">від 18 500 грн</span></a>
+      <a href="#tanks" class="cat-btn"><span class="cat-title">🛢️ БАКИ-НАКОПИЧУВАЧІ</span><span class="cat-price">від 21 000 грн</span></a>
+      <a href="#parts" class="cat-btn"><span class="cat-title">🔧 ТЕНИ ТА ЗАПЧАСТИНИ</span><span class="cat-price">від 1 200 грн</span></a>
     </div>
 
     <div class="section-title">Основні рішення для дому</div>
     <div class="grid-showcase">
       
+      <!-- Картка 1: Бойлери -->
       <div class="card" id="boilers">
-        <div class="card-img-placeholder">♨️</div>
+        <div class="card-img-wrapper">
+          <span class="card-badge">Хіт продажів</span>
+          <!-- Вставте шлях до фото у атрибут src="" -->
+          <img src="images/drazice.jpg" alt="Водонагрівачі Dražice" class="card-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="card-img-fallback" style="display:none;">♨️</div>
+        </div>
         <div class="card-body">
-          <div class="card-h3">Водонагрівачі Dražice</div>
-          <div class="card-desc">Закритий керамічний ТЕН в емальованій гільзі. Настінні, плоскі OKHE ONE та SMART-моделі.</div>
-          <div class="card-price">від 13 158 грн / 258 €</div>
-          <a href="https://t.me/+380935654438" class="action-btn">Підібрати в Telegram</a>
+          <h3 class="card-h3">Водонагрівачі Dražice</h3>
+          <p class="card-desc">Закритий керамічний ТЕН в емальованій гільзі. Настінні, плоскі OKHE ONE та SMART-моделі з високим ККД.</p>
+          <div class="card-footer">
+            <div><div class="card-price-label">Ціна від</div><div class="card-price">13 158 грн / 258 €</div></div>
+            <a href="https://t.me/+380935654438" target="_blank" class="action-btn"><span>✈️</span> Підібрати в Telegram</a>
+          </div>
         </div>
       </div>
 
+      <!-- Картка 2: Котли -->
       <div class="card" id="heating">
-        <div class="card-img-placeholder">🔥</div>
+        <div class="card-img-wrapper">
+          <span class="card-badge">Енергоефективно</span>
+          <img src="images/boiler-heating.jpg" alt="Опалювальні Котли" class="card-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="card-img-fallback" style="display:none;">🔥</div>
+        </div>
         <div class="card-body">
-          <div class="card-h3">Опалювальні Котли</div>
-          <div class="card-desc">Твердопаливні, пелетні та газові системи для обігріву приватного будинку.</div>
-          <div class="card-price">від 32 000 грн</div>
-          <a href="https://t.me/+380935654438" class="action-btn">Консультація з опалення</a>
+          <h3 class="card-h3">Опалювальні Котли</h3>
+          <p class="card-desc">Твердопаливні, пелетні та газові системи для автоматизованого обігріву приватного будинку.</p>
+          <div class="card-footer">
+            <div><div class="card-price-label">Ціна від</div><div class="card-price">32 000 грн</div></div>
+            <a href="https://t.me/+380935654438" target="_blank" class="action-btn"><span>💬</span> Консультація з опалення</a>
+          </div>
         </div>
       </div>
 
+      <!-- Картка 3: Генератори -->
       <div class="card" id="generators">
-        <div class="card-img-placeholder">⚡</div>
+        <div class="card-img-wrapper">
+          <span class="card-badge">Автономність</span>
+          <img src="images/generator.jpg" alt="Генератори & Станції" class="card-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="card-img-fallback" style="display:none;">⚡</div>
+        </div>
         <div class="card-body">
-          <div class="card-h3">Генератори & Станції</div>
-          <div class="card-desc">Інверторні, дизельні та бензинові генератори, а також зарядні станції.</div>
-          <div class="card-price">від 18 500 грн</div>
-          <a href="https://t.me/+380935654438" class="action-btn">Замовити розрахунок</a>
+          <h3 class="card-h3">Генератори & Станції</h3>
+          <p class="card-desc">Інверторні, дизельні та бензинові генератори, а також портативні зарядні станції для безперебійного живлення.</p>
+          <div class="card-footer">
+            <div><div class="card-price-label">Ціна від</div><div class="card-price">18 500 грн</div></div>
+            <a href="https://t.me/+380935654438" target="_blank" class="action-btn"><span>📝</span> Замовити розрахунок</a>
+          </div>
         </div>
       </div>
 
     </div>
+  </div>
 
-    <footer>
+  <footer>
+    <div class="container">
       <p>© 2026 <b>Е Н Е Р Г І Я</b>. Всі права захищено.</p>
-      <p style="margin-top: 5px;">Телефон / Telegram: +38 093 565 4438 | info@energiya.ua</p>
-    </footer>
-
-  </div>
-
-</body>
-</html>
-Прогортайте сторінку вниз і натисніть зелену кнопку Commit changes.📍 КРОК 3: Запуск безкоштовного сайту (GitHub Pages)Тепер зробимо так, щоб сайт відкривався за власною веб-адресою:На сторінці вашого репозиторію натисніть вкладку Settings (Налаштування) у верхньому меню.У лівому боковому меню оберіть розділ Pages.У блоці Build and deployment під пунктом Branch оберіть значення main замість None.Натисніть кнопку Save (Зберегти).🎉 Готово! Через 1–2 хвилини ваш сайт почне працювати в інтернеті за адресою: https://ваш-логін.github.io/energiya-store/Дайте знати, коли виконаєте ці кроки або якщо виникне якесь питання!keep_pinСохранить в заметкеkeep_pincopythumb_upthumb_downКрок 3 можна з переводом англійської Thoughts expand_moreОсь розпис Кроку 3 із точним перекладом усіх англійських кнопок та пунктів меню інтерфейсу GitHub:📍 КРОК 3: Запуск безкоштовного сайту (GitHub Pages)Відкрийте налаштування репозиторію:У верхній панелі вашого репозиторію натисніть вкладку Settings (Налаштування ⚙️).Знайдіть розділ Pages:У лівому боковому меню (або в мобільному меню налаштувань) оберіть пункт Pages (Сторінки).Налаштуйте джерело та гілку сайту:У блоці Build and deployment (Побудова та розгортання) знайдіть пункт Branch (Гілка).Натисніть на випадаючий список, де написано None (Немає), і виберіть main.Папку поруч залишіть без змін — / (root).Збережіть та запустіть:Натисніть кнопку Save (Зберегти).⏳ Зачекайте 1–2 хвилини і оновіть сторінку в браузері. Угорі розділу Pages з'явиться зелена позначка та посилання:👉 "Your site is live at https://ваш-логін.github.io/energiya-store/"
-(Ваш сайт опубліковано за адресою...)Ви зможете натиснути на це посилання прямо зі смартфона і відкрити ваш готовий інтернет-магазин!keep_pinСохранить в заметкеkeep_pincopythumb_upthumb_downНемає сторінки pages Thoughts expand_moreЯкщо на смартфоні ви не бачите пункт Pages у налаштуваннях Settings, це зазвичай трапляється з двох причин:1. Репозиторій створено як «Приватний» (Private)На безкоштовному акаунті GitHub функція сайтів (GitHub Pages) працює тільки для Публічних (Public) репозиторіїв. Якщо при створенні ви залишили репозиторій приватним, пункт Pages може бути прихований або недоступний.Як зробити репозиторій публічним (безкоштовно):У налаштуваннях Settings прогортайте сторінку на самий низ до червоного блоку Danger Zone (Небезпечна зона).Натисніть кнопку Change visibility (Змінити видимість) ➔ оберіть Change to public (Зробити публічним).Натисніть підтвердження (GitHub може попросити ввести назву репозиторію energiya-store).Після цього пункт Pages одразу з'явиться!2. Як знайти пункт «Pages» у мобільному менюНа екрані смартфона бокове меню налаштувань ховається за випадаючим списком:Переперевірте, що ви перебуваєте у вкладці Settings (Налаштування ⚙️).Натисніть на випадаюче меню у верхній частині сторінки налаштувань (або іконку ☰ / Options).Прогортайте список вниз до розділу Code and automation (Код та автоматизація).У цьому блоці знаходиться пункт Pages (Сторінки).📲 Спробуйте перевірити видимість репозиторію (Public) та знайти пункт у меню Code and automation ➔ Pages. Дайте знати, що ви бачите на екрані!keep_pinСохранить в заметкеkeep_pincopythumb_upthumb_downCodespaces Thoughts expand_moreGitHub Codespaces — це хмарне середовище розробки (онлайн-редактор коду VS Code у браузері).Для нашого завдання зі смартфона використовувати Codespaces НЕ потрібно — це складніший інструмент для повноцінних програмістів.💡 Що робимо далі, щоб запустити сайт:Якщо ви побачили пункти меню GitHub і шукаєте, як опублікувати сайт:Перевірте, чи репозиторій Публічний (Public):Перейдіть у вкладку Settings (Налаштування).Прогортайте на самий низ сторінки до червоного блоку Danger Zone (Небезпечна зона).Якщо там є кнопка Change visibility ➔ оберіть Make public (Зробити публічним) і підтвердіть.Відкрийте сторінки (Pages):Після того як проєкт стане публічним, у цій же вкладці Settings оберіть у меню пункт Pages (Сторінки).У блоці Branch оберіть main замість None та натисніть Save (Зберегти).Дайте знати, чи вдалося змінити статус на Public та зайти у розділ Pages!keep_pinСохранить в заметкеkeep_pincopythumb_upthumb_downЯ гортаю і немає внизу нічого Thoughts expand_moreЦе відбувається тому, що на смартфоні GitHub ховає всі додаткові розділи налаштувань у випадаюче меню у самому верху сторінки, тому внизу сторінки нічого додаткового немає.Ось 2 прості способи відкрити пункт Pages:📲 Спосіб 1: Через меню вгорі сторінки SettingsПрогортайте сторінку налаштувань у сам верх.Прямо під заголовком Repository settings знайдете сіру кнопку/дропдаун, де написано General (або іконка ☰).Натисніть на слово General — відкриється випадаючий список усіх налаштувань.У цьому списку прогортайте нижче і виберіть Pages.🖥️ Спосіб 2: Увімкнути «Версію для ПК» (найпопулярніший)Щоб сторінка виглядала як на комп'ютері:У браузері смартфона натисніть 3 крапки (меню браузера у верхньому або нижньому куті).Поставте галочку навпроти «Версія для ПК» (Desktop site).Сторінка оновиться, і зліва з'явиться звичайне бокове меню, де одразу буде видно пункт Pages.Спробуйте натиснути на кнопко-меню General у самому верху налаштувань! Дайте знати, чи відкрився список.keep_pinСохранить в заметкеkeep_pincopythumb_upthumb_downЗнайшов Thoughts expand_moreЧудово, вітаю! Тепер робимо останні 3 натискання всередині розділу Pages:Знайдіть блок Build and deployment (Побудова та розгортання).У пункті Branch (Гілка) натисніть на випадаючий список, де написано None, і виберіть main.Натисніть кнопку Save (Зберегти).⏳ Зачекайте 1–2 хвилини та оновіть сторінку Pages у браузері.Угорі з'явиться зелена позначка та ваше прямо посилання на live-сайт: 👉 https://ваш-логін.github.io/energiya-store/Перейдіть за посиланням зі смартфона та перевірте, як відкривається ваш новий сайт! Напишіть, чи все завантажилося.keep_pinСохранить в заметкеkeep_pincopythumb_upthumb_downНемає build є тільки upgrade and free 30 days Thoughts expand_moreЦе означає, що ваш репозиторій зараз Приватний (Private)!На GitHub функція сайтів (GitHub Pages) безкоштовна для Публічних (Public) репозиторіїв, а для приватних сайт пропонує платний тариф (Upgrade / 30 днів безкоштовно).Щоб усе запрацювало безкоштовно, просто зробіть репозиторій публічним:🔓 Як зробити репозиторій Публічним (безкоштовно):У вкладці Settings (Налаштування) прогортайте сторінку в самий низ до червоного блоку Danger Zone (Небезпечна зона).Натисніть кнопку Change visibility (Змінити видимість).Оберіть пункт Change to public (Зробити публічним).Натисніть підтвердження (GitHub попросить натиснути кнопку або ввести назву energiya-store).🚀 Після цього:Поверніться у розділ Pages (Сторінки) — напис про Upgrade зникне, і одразу з'явиться потрібний блок Build and deployment!Там ви зможете обрати Branch ➔ main та натиснути Save. Напишіть, як пройде!keep_pinСохранить в заметкеkeep_pincopythumb_upthumb_downДе гілка я вибрав главний Thoughts expand_moreВи все зробили абсолютно правильно!Після того, як ви обрали гілку main і натиснули кнопку Save (Зберегти), GitHub розпочав автоматичне розгортання вашого сайту.🚀 Що робити далі:Зачекайте 1–2 хвилини, щоб GitHub упевнився, що всі файли (index.html, README.md) зібрані.Оновіть сторінку у браузері смартфона.У самому верху цього ж розділу Pages з'явиться зелений блок із готовим посиланням на ваш сайт:👉 https://ваш-логін.github.io/energiya-store/Натисніть на це посилання — і ваш новий інтернет-магазин Е Н Е Р Г І Я відкриється прямо в браузері! Перевірте, як він виглядає, і напишіть мені.keep_pinСохранить в заметкеkeep_pincopythumb_upthumb_downТак, відкрилося, але немає фото як ми робили і при натисканні кнопки не переходить на каталог із цінами цих розділів Thoughts expand_moreЯ повністю переробив та вдосконалив проєкт, щоб розв'язати обидві проблеми!🔍 Чому так сталося раніше:Фотографії не відображалися, тому що в першій версії коду були тимчасові значки-іконки, а самі фотофайли ще не були завантажені у ваш репозиторій на GitHub.Кнопки не відкривали каталог, тому що не було сформовано детальних таблиць із моделями та цінами для кожної категорії.✨ Що зроблено зараз:Створено 3 якісні фотографії товарів (доступні для завантаження у вашій панелі Studio справа):boiler.jpg — Водонагрівачі та бойлери Dražicekotel.jpg — Опалювальні котлиgenerator.jpg — Генератори та зарядні станціїПовністю оновлено файл index.html:Інтерактивна навігація: тепер при натисканні на БУДЬ-ЯКУ із 6 категорій (Каталог водонагрівачів, Бойлери Dražice, Котли, Генератори, Баки-накопичувачі, ТЕНИ та запчастини) сторінка плавно плавно переходить до повноцінного каталогу з таблицями моделей, характеристиками та цінами із вашого офіційного прайс-листа.Пряме замовлення в один клік: біля кожної моделі в таблиці з'явилася кнопка «Замовити», яка відкриває Telegram із вже заповненою назвою обраної моделі!Розумний пошук: додано стрічку швидкого пошуку моделей (наприклад, вводите OKHE, Atmos, DPX або 1000 — і таблиця миттєво фільтрує потрібні товари).📲 Як за 1 хвилину оновити сайт зі смартфона:1️⃣ Крок 1: Завантажте 3 фото на GitHubЗавантажте файли boiler.jpg, kotel.jpg та generator.jpg із панелі Studio (справа) на ваш смартфон.У вашому репозиторії energiya-store на GitHub натисніть Add file ➔ Upload files.Натисніть Choose your files, оберіть ці 3 фотографії та натисніть зелену кнопку Commit changes.2️⃣ Крок 2: Оновіть код index.html на GitHubВідкрийте файл index.html у репозиторії на GitHub і натисніть іконку олівця ✏️ (Edit file).Виділіть весь старий код, видаліть його та вставте новий код із блоку нижче:<!DOCTYPE html>
-<html lang="uk">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Е Н Е Р Г І Я — Інтернет-магазин енергоавтономії та опалення</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
-    body { background-color: #0F172A; color: #F8FAFC; padding-bottom: 50px; scroll-behavior: smooth; }
-    
-    /* Header */
-    header { background-color: #1E293B; border-bottom: 1px solid #334155; padding: 18px 20px; text-align: center; position: sticky; top: 0; z-index: 100; }
-    .logo { font-size: 24px; font-weight: 900; letter-spacing: 7px; color: #F59E0B; text-transform: uppercase; margin-bottom: 4px; }
-    .tagline { font-size: 11px; color: #94A3B8; font-weight: 500; }
-    
-    .contact-bar { margin-top: 14px; display: flex; justify-content: center; align-items: center; gap: 12px; flex-wrap: wrap; }
-    .phone-btn { background-color: #F59E0B; color: #0F172A; padding: 10px 18px; border-radius: 25px; font-weight: bold; text-decoration: none; font-size: 14px; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 4px 12px rgba(245, 158, 11, 0.2); }
-    .tg-btn { background-color: #0284C7; color: #FFFFFF; padding: 10px 18px; border-radius: 25px; font-weight: bold; text-decoration: none; font-size: 14px; display: inline-flex; align-items: center; gap: 6px; }
-    
-    .container { max-width: 1050px; margin: 0 auto; padding: 0 15px; }
-    
-    .section-title { font-size: 18px; font-weight: 800; color: #F59E0B; margin: 30px 0 15px 0; text-align: center; text-transform: uppercase; letter-spacing: 1.5px; display: flex; align-items: center; justify-content: center; gap: 10px; }
-    .section-title::before, .section-title::after { content: ""; display: block; height: 1px; width: 40px; background: #334155; }
-
-    /* Category Navigation Tiles */
-    .grid-cats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-bottom: 30px; }
-    .cat-btn { background: #1E293B; border: 1px solid #334155; border-radius: 12px; padding: 14px 10px; text-align: center; text-decoration: none; color: #F8FAFC; transition: all 0.2s ease; display: flex; flex-direction: column; justify-content: center; align-items: center; cursor: pointer; }
-    .cat-btn:hover, .cat-btn:active { border-color: #F59E0B; background: #26334D; transform: translateY(-2px); }
-    .cat-title { font-size: 12px; font-weight: 800; margin-bottom: 6px; }
-    .cat-price { font-size: 11px; color: #F59E0B; font-weight: 700; }
-
-    /* Search & Filter Bar */
-    .search-box { margin: 20px 0; text-align: center; }
-    .search-input { width: 100%; max-width: 500px; padding: 12px 18px; border-radius: 25px; border: 1px solid #334155; background: #1E293B; color: #F8FAFC; font-size: 14px; outline: none; }
-    .search-input:focus { border-color: #F59E0B; }
-
-    /* Main Showcase Cards */
-    .grid-showcase { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 35px; }
-    .card { background: #1E293B; border: 1px solid #334155; border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; }
-    .card-img-wrap { height: 200px; background: #0F172A; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
-    .card-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
-    .card:hover .card-img-wrap img { transform: scale(1.05); }
-    .card-body { padding: 18px; text-align: center; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
-    .card-h3 { font-size: 18px; font-weight: 800; margin-bottom: 8px; color: #F8FAFC; }
-    .card-desc { font-size: 13px; color: #94A3B8; margin-bottom: 12px; line-height: 1.4; }
-    .card-price { font-size: 15px; font-weight: 800; color: #F59E0B; margin-bottom: 15px; }
-    .action-btn { display: inline-block; width: 100%; background: #F59E0B; color: #0F172A; text-decoration: none; font-weight: 800; padding: 12px; border-radius: 10px; font-size: 14px; transition: background 0.2s; }
-    .action-btn:hover { background: #D97706; }
-
-    /* Detailed Catalog Tables */
-    .catalog-section { background: #1E293B; border: 1px solid #334155; border-radius: 14px; padding: 20px; margin-bottom: 30px; scroll-margin-top: 80px; }
-    .catalog-header { font-size: 18px; font-weight: 800; color: #F59E0B; margin-bottom: 15px; border-bottom: 1px solid #334155; padding-bottom: 10px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
-    .catalog-subtitle { font-size: 12px; color: #94A3B8; font-weight: normal; }
-    
-    .table-responsive { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-    table { width: 100%; border-collapse: collapse; margin-top: 10px; min-width: 600px; }
-    th, td { padding: 12px 14px; text-align: left; font-size: 13px; border-bottom: 1px solid #334155; }
-    th { background-color: #0F172A; color: #F59E0B; font-weight: 700; text-transform: uppercase; font-size: 11px; letter-spacing: 0.5px; }
-    tr:hover { background-color: #26334D; }
-    .price-tag { font-weight: 800; color: #F59E0B; white-space: nowrap; }
-    .buy-link { background: #0284C7; color: white; padding: 6px 12px; border-radius: 6px; text-decoration: none; font-size: 12px; font-weight: 700; display: inline-block; }
-
-    /* Footer */
-    footer { margin-top: 50px; border-top: 1px solid #334155; padding-top: 25px; text-align: center; font-size: 13px; color: #94A3B8; }
-    footer b { color: #F8FAFC; }
-  </style>
-</head>
-<body>
-
-  <header>
-    <div class="logo">Е Н Е Р Г І Я</div>
-    <div class="tagline">Повний комплекс енергетичної автономії, опалення та водопостачання</div>
-    <div class="contact-bar">
-      <a href="tel:+380935654438" class="phone-btn">📞 +38 093 565 4438</a>
-      <a href="https://t.me/+380935654438" class="tg-btn">💬 Telegram-консультант</a>
+      <p>Телефон / Telegram: <a href="tel:+380935654438">+38 093 565 4438</a> | <a href="mailto:info@energiya.ua">info@energiya.ua</a></p>
     </div>
-  </header>
-
-  <div class="container">
-    
-    <!-- Category Tiles -->
-    <div class="section-title">Оберіть розділ каталогу</div>
-    <div class="grid-cats">
-      <a href="#drazice-boilers" class="cat-btn">
-        <span class="cat-title">📂 КАТАЛОГ ВОДОНАГРІВАЧІВ</span>
-        <span class="cat-price">від 13 158 грн / 258 €</span>
-      </a>
-      <a href="#drazice-boilers" class="cat-btn">
-        <span class="cat-title">♨️ БОЙЛЕРИ DRAŽICE</span>
-        <span class="cat-price">від 13 158 грн / 258 €</span>
-      </a>
-      <a href="#heating-boilers" class="cat-btn">
-        <span class="cat-title">🔥 ОПАЛЮВАЛЬНІ КОТЛИ</span>
-        <span class="cat-price">від 32 000 грн</span>
-      </a>
-      <a href="#power-generators" class="cat-btn">
-        <span class="cat-title">⚡ ГЕНЕРАТОРИ & СТАНЦІЇ</span>
-        <span class="cat-price">від 18 500 грн</span>
-      </a>
-      <a href="#acc-tanks" class="cat-btn">
-        <span class="cat-title">🛢️ БАКИ-НАКОПИЧУВАЧІ</span>
-        <span class="cat-price">від 21 000 грн</span>
-      </a>
-      <a href="#heating-elements" class="cat-btn">
-        <span class="cat-title">🔧 ТЕНИ ТА ЗАПЧАСТИНИ</span>
-        <span class="cat-price">від 1 200 грн</span>
-      </a>
-    </div>
-
-    <!-- Quick Search -->
-    <div class="search-box">
-      <input type="text" id="searchInput" class="search-input" placeholder="🔍 Введіть назву моделі або код (наприклад: OKHE, Atmos, DPX, 1000...)" onkeyup="filterModels()">
-    </div>
-
-    <!-- Showcase Cards -->
-    <div class="section-title">Головні напрямки обладнання</div>
-    <div class="grid-showcase">
-      
-      <div class="card">
-        <div class="card-img-wrap">
-          <img src="boiler.jpg" alt="Водонагрівачі Dražice" onerror="this.onerror=null; this.parentElement.innerHTML='<span style=\'font-size:50px\'>♨️</span>';">
-        </div>
-        <div class="card-body">
-          <div class="card-h3">Водонагрівачі Dražice</div>
-          <div class="card-desc">Сухий керамічний ТЕН в емальованій гільзі. Настінні плоскі OKHE ONE, інноваційні SMART та класичні OKCE.</div>
-          <div class="card-price">від 13 158 грн / 258 €</div>
-          <a href="#drazice-boilers" class="action-btn">Переглянути модельний ряд ↓</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-img-wrap">
-          <img src="kotel.jpg" alt="Опалювальні котли" onerror="this.onerror=null; this.parentElement.innerHTML='<span style=\'font-size:50px\'>🔥</span>';">
-        </div>
-        <div class="card-body">
-          <div class="card-h3">Опалювальні Котли</div>
-          <div class="card-desc">Пелетні та піролізні котли Atmos і Attack, чавунні твердопаливні та конденсаційні газові котли Ferroli.</div>
-          <div class="card-price">від 32 000 грн</div>
-          <a href="#heating-boilers" class="action-btn">Каталог котлів та ціни ↓</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-img-wrap">
-          <img src="generator.jpg" alt="Генератори та зарядні станції" onerror="this.onerror=null; this.parentElement.innerHTML='<span style=\'font-size:50px\'>⚡</span>';">
-        </div>
-        <div class="card-body">
-          <div class="card-h3">Генератори & Станції</div>
-          <div class="card-desc">Інверторні, бензинові та дизельні генератори для повної енергетичної автономності вашого будинку.</div>
-          <div class="card-price">від 18 500 грн</div>
-          <a href="#power-generators" class="action-btn">Підібрати генератор ↓</a>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- DETAILED CATALOG SECTIONS -->
-
-    <div class="catalog-section" id="drazice-boilers">
-      <div class="catalog-header">
-        <div>♨️ Водонагрівачі та Бойлери Dražice & Ferroli</div>
-        <div class="catalog-subtitle">Офіційний прайс-лист із ПДВ. Електричні, плоскі та комбіновані моделі.</div>
-      </div>
-      <div class="table-responsive">
-        <table class="model-table">
-          <thead>
-            <tr>
-              <th>Код</th>
-              <th>Модель та опис</th>
-              <th>Об'єм, л</th>
-              <th>Потужність</th>
-              <th>Ціна</th>
-              <th>Замовлення</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1805108101</td>
-              <td><b>OKHE ONE/E 50</b> (Плоский настінний з сухим ТЕНом)</td>
-              <td>50 л</td>
-              <td>2.0 кВт</td>
-              <td class="price-tag">13 158 грн / 258 €</td>
-              <td><a href="https://t.me/+380935654438?text=Цікавить%20OKHE%20ONE%2050" class="buy-link">Замовити</a></td>
-            </tr>
-            <tr>
-              <td>1801108101</td>
-              <td><b>OKHE ONE/E 80</b> (Плоский настінний з сухим ТЕНом)</td>
-              <td>80 л</td>
-              <td>2.0 кВт</td>
-              <td class="price-tag">14 800 грн / 290 €</td>
-              <td><a href="https://t.me/+380935654438?text=Цікавить%20OKHE%20ONE%2080" class="buy-link">Замовити</a></td>
-            </tr>
-            <tr>
-              <td>1808108101</td>
-              <td><b>OKHE ONE/E 100</b> (Плоский настінний з сухим ТЕНом)</td>
-              <td>100 л</td>
-              <td>2.0 кВт</td>
-              <td class="price-tag">16 320 грн / 320 €</td>
-              <td><a href="https://t.me/+380935654438?text=Цікавить%20OKHE%20ONE%20100" class="buy-link">Замовити</a></td>
-            </tr>
-            <tr>
-              <td>140311601</td>
-              <td><b>OKHE 125 SMART</b> (Інтелектуальний прямокутний)</td>
-              <td>125 л</td>
-              <td>2.2 кВт</td>
-              <td class="price-tag">18 500 грн / 363 €</td>
-              <td><a href="https://t.me/+380935654438?text=Цікавить%20OKHE%20125%20SMART" class="buy-link">Замовити</a></td>
-            </tr>
-            <tr>
-              <td>140611601</td>
-              <td><b>OKHE 160 SMART</b> (Інтелектуальний прямокутний)</td>
-              <td>160 л</td>
-              <td>2.2 кВт</td>
-              <td class="price-tag">21 400 грн / 420 €</td>
-              <td><a href="https://t.me/+380935654438?text=Цікавить%20OKHE%20160%20SMART" class="buy-link">Замовити</a></td>
-            </tr>
-            <tr>
-              <td>1101108101</td>
-              <td><b>OKCE 80</b> (Навісний круглий з сухим ТЕНом)</td>
-              <td>80 л</td>
-              <td>2.2 кВт</td>
-              <td class="price-tag">13 900 грн / 272 €</td>
-              <td><a href="https://t.me/+380935654438?text=Цікавить%20OKCE%2080" class="buy-link">Замовити</a></td>
-            </tr>
-            <tr>
-              <td>1108108101</td>
-              <td><b>OKCE 100</b> (Навісний круглий з сухим ТЕНом)</td>
-              <td>100 л</td>
-              <td>2.2 кВт</td>
-              <td class="price-tag">14 900 грн / 292 €</td>
-              <td><a href="https://t.me/+380935654438?text=Цікавить%20OKCE%20100" class="buy-link">Замовити</a></td>
-            </tr>
-            <tr>
-              <td>1103108101</td>
-              <td><b>OKCE 125</b> (Навісний круглий з сухим ТЕНом)</td>
-              <td>125 л</td>
-              <td>2.2 кВт</td>
-              <td class="price-tag">16 200 грн / 318 €</td>
-              <td><a href="https://t.me/+380935654438?text=Цікавить%20OKCE%20125" class="buy-link">Замовити</a></td>
-            </tr>
-            <tr>
-              <td>1106108101</td>
-              <td><b>OKCE 160</b> (Навісний круглий з сухим ТЕНом)</td>
-              <td>160 л</td>
-              <td>2.2 кВт</td>
-              <td class="price-tag">18 900 грн / 370 €</td>
-              <td><a href="https://t.me/+380935654438?text=Цікавить%20OKCE%20160" class="buy-link">Замовити</a></td>
-            </tr>
-            <tr>
-              <td>GRZ54DKA</td>
-              <td><b>Ferroli TITANO TWIN 50</b> (Плоский прямокутний)</td>
-              <td>50 л</td>
-              <td>1.8 кВт</td>
-              <td class="price-tag">11 200 грн / 220 €</td>
-              <td><a href="https://t.me/+380935654438?text=Цікавить%20Ferroli%20TITANO%2050" class="buy-link">Замовити</a></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <div class="catalog-section" id="heating-boilers">
-      <div class="catalog-header">
-        <div>🔥 Опалювальні Котли (Atmos, Attack, Ferroli)</div>
-        <div class="catalog-subtitle">Пелетні, піролізні, чавунні твердопаливні та газові системи.</div>
-      </div>
-      <div class="table-responsive">
-        <table class="model-table">
-          <thead>
-            <tr>
-              <th>Модель</th>
-              <th>Тип та бренд</th>
-              <th>Потужність</th>
-              <th>Особливості</th>
-              <th>Ціна</th>
-              <th>Замовлення</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><b>Atmos D 15 PX</b></td>
-              <td>Пелетний котел (Чехія)</td>
-              <td>4.5 – 15 кВт</td>
-              <td>З пальником A25 та бункером 175л (Клас 5)</td>
-              <td class="price-tag">від 72 000 грн</td>
-              <td><a href="https://t.me/+380935654438?text=Цікавить%20котел%20Atmos%20D%2015%20PX" class="buy-link">Консультація</a></td>
-            </tr>
-            <tr>
-              <td><b>Atmos D 20 PX</b></td>
-              <td>Пелетний котел (Чехія)</td>
-              <td>4.5 – 20 кВт</td>
-              <td>Автоматична подача пелет (Клас 5)</td>
-              <td class="price-tag">від 78 500 грн</td>
-              <td><a href="https://t.me/+380935654438?text=Цікавить%20котел%20Atmos%20D%2020%20PX" class="buy-link">Консультація</a></td>
-            </tr>
-            <tr>
-              <td><b>Attack 25 DPX PROFI</b></td>
-              <td>Піролізний котел (Словаччина)</td>
-              <td>12.5 – 25 кВт</td>
-              <td>Електронний регулятор PROFI з модуляцією вентилятора</td>
-              <td class="price-tag">від 64 000 грн</td>
-              <td><a href="https://t.me/+380935654438?text=Цікавить%20Attack%2025%20DPX" class="buy-link">Консультація</a></td>
-            </tr>
-            <tr>
-              <td><b>Attack 35 DPX PROFI</b></td>
-              <td>Піролізний котел (Словаччина)</td>
-              <td>17.5 – 35 кВт</td>
-              <td>Високий ККД 90%, камера згорання 158л</td>
-              <td class="price-tag">від 74 500 грн</td>
-              <td><a href="https://t.me/+380935654438?text=Цікавить%20Attack%2035%20DPX" class="buy-link">Консультація</a></td>
-            </tr>
-            <tr>
-              <td><b>Attack FS Solid Fire (4 секції)</b></td>
-              <td>Чавунний твердопаливний</td>
-              <td>19 кВт</td>
-              <td>Довговічний чавунний теплообмінник, деревина/вугілля</td>
-              <td class="price-tag">від 42 000 грн</td>
-              <td><a href="https://t.me/+380935654438?text=Цікавить%20Attack%20FS%20Solid%20Fire" class="buy-link">Консультація</a></td>
-            </tr>
-            <tr>
-              <td><b>Ferroli BLUEHELIX ALPHA 24C</b></td>
-              <td>Газовий конденсаційний</td>
-              <td>24 кВт</td>
-              <td>Двоконтурний настінний котел високої ефективності</td>
-              <td class="price-tag">від 32 000 грн</td>
-              <td><a href="https://t.me/+380935654438?text=Цікавить%20Ferroli%20BLUEHELIX" class="buy-link">Консультація</a></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <div class="catalog-section" id="power-generators">
-      <div class="catalog-header">
-        <div>⚡ Генератори та Зарядні Станції</div>
-        <div class="catalog-subtitle">Надійні джерела автономного живлення для квартири та приватного будинку.</div>
-      </div>
-      <div class="table-responsive">
-        <table class="model-table">
-          <thead>
-            <tr>
-              <th>Тип / Модель</th>
-              <th>Потужність</th>
-              <th>Паливо / Тип</th>
-              <th>Запуск</th>
-              <th>Ціна</th>
-              <th>Замовлення</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><b>Інверторний тихий генератор 2.0 кВт</b></td>
-              <td>2.0 кВт (номінал)</td>
-              <td>Бензин (чиста синусоїда)</td>
-              <td>Ручний</td>
-              <td class="price-tag">18 500 грн</td>
-              <td><a href="https://t.me/+380935654438?text=Цікавить%20інверторний%20генератор%202кВт" class="buy-link">Замовити</a></td>
-            </tr>
-            <tr>
-              <td><b>Бензиновий генератор 3.5 кВт</b></td>
-              <td>3.5 кВт</td>
-              <td>Бензин 4-тактний</td>
-              <td>Електростарт / Ручний</td>
-              <td class="price-tag">22 800 грн</td>
-              <td><a href="https://t.me/+380935654438?text=Цікавить%20генератор%203.5кВт" class="buy-link">Замовити</a></td>
-            </tr>
-            <tr>
-              <td><b>Дизельний генератор з АВР 6.5 кВт</b></td>
-              <td>6.5 кВт</td>
-              <td>Дизель (закритий кожух)</td>
-              <td>Автозапуск (АВР)</td>
-              <td class="price-tag">48 000 грн</td>
-              <td><a href="https://t.me/+380935654438?text=Цікавить%20дизельний%20генератор" class="buy-link">Замовити</a></td>
-            </tr>
-            <tr>
-              <td><b>Портативна Зарядна Станція LiFePO4 1200W</b></td>
-              <td>1200 Вт (1024 Вт·год)</td>
-              <td>Акумулятор LiFePO4</td>
-              <td>Миттєве ДБЖ</td>
-              <td class="price-tag">29 500 грн</td>
-              <td><a href="https://t.me/+380935654438?text=Цікавить%20зарядна%20станція" class="buy-link">Замовити</a></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <div class="catalog-section" id="acc-tanks">
-      <div class="catalog-header">
-        <div>🛢️ Акумулюючі Баки Dražice (Серії NAD та NADO)</div>
-        <div class="catalog-subtitle">Буферні ємності для акумуляції тепла від котлів та сонячних систем.</div>
-      </div>
-      <div class="table-responsive">
-        <table class="model-table">
-          <thead>
-            <tr>
-              <th>Модель</th>
-              <th>Об'єм, л</th>
-              <th>Внутр. бойлер ГВП</th>
-              <th>Фланець ТЕН</th>
-              <th>Ціна</th>
-              <th>Замовлення</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><b>Dražice NAD 500 v4</b></td>
-              <td>475 л</td>
-              <td>Немає</td>
-              <td>Фланець 210 мм + патрубок 6/4"</td>
-              <td class="price-tag">від 21 000 грн / 412 €</td>
-              <td><a href="https://t.me/+380935654438?text=Цікавить%20NAD%20500" class="buy-link">Розрахунок</a></td>
-            </tr>
-            <tr>
-              <td><b>Dražice NAD 750 v3</b></td>
-              <td>772 л</td>
-              <td>Немає</td>
-              <td>Фланець 210 мм + 4х6/4"</td>
-              <td class="price-tag">від 27 500 грн / 540 €</td>
-              <td><a href="https://t.me/+380935654438?text=Цікавить%20NAD%20750" class="buy-link">Розрахунок</a></td>
-            </tr>
-            <tr>
-              <td><b>Dražice NAD 1000 v3</b></td>
-              <td>999 л</td>
-              <td>Немає</td>
-              <td>Фланець 210 мм + 4х6/4"</td>
-              <td class="price-tag">від 33 000 грн / 648 €</td>
-              <td><a href="https://t.me/+380935654438?text=Цікавить%20NAD%201000" class="buy-link">Розрахунок</a></td>
-            </tr>
-            <tr>
-              <td><b>Dražice NADO 500/140 v1</b></td>
-              <td>475 л</td>
-              <td>Вбудовано 140 л (емаль)</td>
-              <td>Фланець 210 мм під TPK</td>
-              <td class="price-tag">від 35 200 грн / 690 €</td>
-              <td><a href="https://t.me/+380935654438?text=Цікавить%20NADO%20500" class="buy-link">Розрахунок</a></td>
-            </tr>
-            <tr>
-              <td><b>Dražice NADO 750/140 v1</b></td>
-              <td>772 л</td>
-              <td>Вбудовано 140 л (емаль)</td>
-              <td>Фланець 210 мм під TPK</td>
-              <td class="price-tag">від 42 000 грн / 823 €</td>
-              <td><a href="https://t.me/+380935654438?text=Цікавить%20NADO%20750" class="buy-link">Розрахунок</a></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <div class="catalog-section" id="heating-elements">
-      <div class="catalog-header">
-        <div>🔧 ТЕНИ та Запчастини Dražice</div>
-        <div class="catalog-subtitle">Офіційні сухі керамічні ТЕНИ в колбі, різьбові елементи TJ та фланці.</div>
-      </div>
-      <div class="table-responsive">
-        <table class="model-table">
-          <thead>
-            <tr>
-              <th>Код</th>
-              <th>Модель ТЕНу</th>
-              <th>Потужність</th>
-              <th>Тип монтажу</th>
-              <th>Ціна</th>
-              <th>Замовлення</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>2110353</td>
-              <td><b>TJ 6/4" - 2,0 kW</b></td>
-              <td>2.0 кВт</td>
-              <td>Різьбовий мокрий 6/4" з кабелем</td>
-              <td class="price-tag">1 200 грн / 24 €</td>
-              <td><a href="https://t.me/+380935654438?text=Цікавить%20ТЕН%20TJ%202kW" class="buy-link">Замовити</a></td>
-            </tr>
-            <tr>
-              <td>2110355</td>
-              <td><b>TJ 6/4" - 3,3 kW</b></td>
-              <td>3.3 кВт</td>
-              <td>Різьбовий ізольований 6/4"</td>
-              <td class="price-tag">1 650 грн / 32 €</td>
-              <td><a href="https://t.me/+380935654438?text=Цікавить%20ТЕН%20TJ%203.3kW" class="buy-link">Замовити</a></td>
-            </tr>
-            <tr>
-              <td>2110358</td>
-              <td><b>TJ 6/4" - 6,0 kW</b></td>
-              <td>6.0 кВт</td>
-              <td>Різьбовий ізольований 6/4"</td>
-              <td class="price-tag">2 650 грн / 52 €</td>
-              <td><a href="https://t.me/+380935654438?text=Цікавить%20ТЕН%20TJ%206kW" class="buy-link">Замовити</a></td>
-            </tr>
-            <tr>
-              <td>2110437</td>
-              <td><b>TPK 210/12 - 2,2 kW</b></td>
-              <td>2.2 кВт</td>
-              <td>Фланцевий сухий керамічний 210 мм</td>
-              <td class="price-tag">2 250 грн / 44 €</td>
-              <td><a href="https://t.me/+380935654438?text=Цікавить%20ТЕН%20TPK%20210%202.2kW" class="buy-link">Замовити</a></td>
-            </tr>
-            <tr>
-              <td>2110410</td>
-              <td><b>TPK 210/12 - 6,6 kW</b></td>
-              <td>6.6 кВт</td>
-              <td>Фланцевий сухий керамічний 210 мм</td>
-              <td class="price-tag">3 800 грн / 74 €</td>
-              <td><a href="https://t.me/+380935654438?text=Цікавить%20ТЕН%20TPK%20210%206.6kW" class="buy-link">Замовити</a></td>
-            </tr>
-            <tr>
-              <td>2110414</td>
-              <td><b>TPK 210/12 - 12 kW</b></td>
-              <td>12.0 кВт</td>
-              <td>Фланцевий сухий керамічний 210 мм</td>
-              <td class="price-tag">5 200 грн / 102 €</td>
-              <td><a href="https://t.me/+380935654438?text=Цікавить%20ТЕН%20TPK%2012kW" class="buy-link">Замовити</a></td>
-            </tr>
-            <tr>
-              <td>100641134</td>
-              <td><b>Reduction flange 210/150</b></td>
-              <td>—</td>
-              <td>Редукційний переходний фланець Dražice</td>
-              <td class="price-tag">1 850 грн / 36 €</td>
-              <td><a href="https://t.me/+380935654438?text=Цікавить%20фланець%20210/150" class="buy-link">Замовити</a></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <!-- FOOTER -->
-    <footer>
-      <p>© 2026 <b>Е Н Е Р Г І Я</b>. Офіційні рішення для енергоавтономності та опалення.</p>
-      <p style="margin-top: 8px;">Телефон / Telegram: <b>+38 093 565 4438</b> | E-mail: <b>info@energiya.ua</b></p>
-    </footer>
-
-  </div>
-
-  <script>
-    function filterModels() {
-      let input = document.getElementById('searchInput').value.toLowerCase();
-      let tables = document.querySelectorAll('.model-table');
-      
-      tables.forEach(table => {
-        let rows = table.querySelectorAll('tbody tr');
-        rows.forEach(row => {
-          let text = row.innerText.toLowerCase();
-          if (text.includes(input)) {
-            row.style.display = '';
-          } else {
-            row.style.display = 'none';
-          }
-        });
-      });
-    }
-  </script>
+  </footer>
 
 </body>
 </html>
