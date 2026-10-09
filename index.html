@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Е Н Е Р Г І Я — Опалювальне та Енергетичне Обладнання</title>
-  <!-- Сучасний шрифт Inter з Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -13,29 +12,31 @@
     :root {
       --bg-dark: #0B1120;
       --bg-surface: #1E293B;
-      --bg-card: rgba(30, 41, 59, 0.7);
-      --border-color: rgba(255, 255, 255, 0.08);
-      --border-hover: rgba(245, 158, 11, 0.4);
+      --bg-card: rgba(30, 41, 59, 0.75);
+      --border-color: rgba(255, 255, 255, 0.1);
+      --border-hover: rgba(245, 158, 11, 0.5);
       --primary: #F59E0B;
       --primary-hover: #D97706;
       --primary-glow: rgba(245, 158, 11, 0.25);
       --text-main: #F8FAFC;
       --text-muted: #94A3B8;
       --accent-blue: #38BDF8;
+      --accent-green: #10B981;
       --radius-sm: 8px;
       --radius-md: 14px;
       --radius-lg: 20px;
       --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
+    html { scroll-behavior: smooth; }
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: 'Inter', system-ui, -apple-system, sans-serif;
       background-color: var(--bg-dark);
       background-image: 
-        radial-gradient(at 0% 0%, rgba(245, 158, 11, 0.05) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(56, 189, 248, 0.05) 0px, transparent 50%);
+        radial-gradient(at 0% 0%, rgba(245, 158, 11, 0.08) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(56, 189, 248, 0.08) 0px, transparent 50%);
       color: var(--text-main);
       line-height: 1.5;
       padding-bottom: 60px;
@@ -44,9 +45,8 @@
 
     a { text-decoration: none; color: inherit; }
 
-    /* Header */
     header {
-      background: rgba(15, 23, 42, 0.85);
+      background: rgba(15, 23, 42, 0.9);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border-color);
@@ -56,7 +56,7 @@
 
     .header-content {
       max-width: 1100px; margin: 0 auto;
-      display: flex; flex-direction: column; align-items: center; gap: 12px;
+      display: flex; flex-direction: column; align-items: center; gap: 14px;
     }
 
     @media (min-width: 768px) {
@@ -73,7 +73,20 @@
 
     .tagline { font-size: 12px; color: var(--text-muted); font-weight: 500; }
 
-    .contact-bar { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; justify-content: center; }
+    .contact-bar { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; justify-content: center; }
+
+    .quick-order-header-btn {
+      background: rgba(245, 158, 11, 0.15);
+      border: 1px solid var(--primary);
+      color: var(--primary);
+      padding: 9px 16px; border-radius: var(--radius-lg);
+      font-weight: 700; font-size: 13px; cursor: pointer;
+      transition: var(--transition);
+    }
+    .quick-order-header-btn:hover {
+      background: var(--primary); color: #0F172A;
+      box-shadow: 0 4px 14px var(--primary-glow);
+    }
 
     .phone-btn {
       background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
@@ -102,27 +115,31 @@
       background: linear-gradient(90deg, var(--border-color) 0%, transparent 100%);
     }
 
-    /* Trust Badges */
     .features-bar { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 25px; }
     .feature-item {
       background: var(--bg-card); border: 1px solid var(--border-color);
-      border-radius: var(--radius-md); padding: 12px 16px;
+      border-radius: var(--radius-md); padding: 14px 16px;
       display: flex; align-items: center; gap: 12px; font-size: 13px; color: var(--text-muted);
     }
-    .feature-item span b { color: var(--text-main); display: block; }
+    .feature-item span b { color: var(--text-main); display: block; font-size: 14px; }
 
-    /* Category Grid */
-    .grid-cats { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
-    .cat-btn {
-      background: var(--bg-card); border: 1px solid var(--border-color);
-      border-radius: var(--radius-md); padding: 16px 14px; transition: var(--transition);
+    .catalog-filter-bar {
+      display: flex; gap: 10px; overflow-x: auto; padding-bottom: 8px; margin-bottom: 20px;
+      scrollbar-width: thin;
     }
-    .cat-btn:hover { border-color: var(--primary); transform: translateY(-3px); box-shadow: 0 8px 24px -6px rgba(0,0,0,0.5); }
-    .cat-title { font-size: 13px; font-weight: 700; color: var(--text-main); margin-bottom: 8px; display: block; }
-    .cat-price { font-size: 12px; color: var(--primary); font-weight: 600; }
+    .filter-btn {
+      background: var(--bg-card); border: 1px solid var(--border-color);
+      color: var(--text-muted); padding: 10px 18px; border-radius: var(--radius-md);
+      font-size: 13px; font-weight: 600; white-space: nowrap; cursor: pointer;
+      transition: var(--transition); display: flex; align-items: center; gap: 6px;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: rgba(245, 158, 11, 0.15); border-color: var(--primary);
+      color: var(--primary); transform: translateY(-2px);
+    }
 
-    /* Showcase Cards */
-    .grid-showcase { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+    .grid-showcase { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 22px; }
+    
     .card {
       background: var(--bg-card); border: 1px solid var(--border-color);
       border-radius: var(--radius-lg); overflow: hidden; display: flex; flex-direction: column;
@@ -132,34 +149,113 @@
       border-color: var(--border-hover); transform: translateY(-5px);
       box-shadow: 0 16px 32px -10px rgba(0, 0, 0, 0.6), 0 0 20px var(--primary-glow);
     }
+    .card.hidden { display: none !important; }
 
     .card-img-wrapper {
-      position: relative; width: 100%; height: 200px;
-      background: #151D2A; overflow: hidden; display: flex; align-items: center; justify-content: center;
+      position: relative; width: 100%; height: 210px;
+      background: #151D2A;
+      overflow: hidden; display: flex; align-items: center; justify-content: center;
     }
-    .card-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
-    .card:hover .card-img { transform: scale(1.05); }
-    .card-img-fallback { font-size: 48px; display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; }
+    .card-img {
+      width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;
+    }
+    .card:hover .card-img { transform: scale(1.06); }
 
     .card-badge {
       position: absolute; top: 12px; left: 12px; background: rgba(15, 23, 42, 0.85);
       border: 1px solid var(--border-color); backdrop-filter: blur(8px);
       color: var(--primary); font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 20px;
+      z-index: 2;
     }
-
-    .card-body { padding: 20px; display: flex; flex-direction: column; flex-grow: 1; }
+.card-body { padding: 20px; display: flex; flex-direction: column; flex-grow: 1; }
     .card-h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; color: var(--text-main); }
-    .card-desc { font-size: 13px; color: var(--text-muted); margin-bottom: 16px; flex-grow: 1; }
-    .card-footer { margin-top: auto; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.05); display: flex; flex-direction: column; gap: 12px; }
-    .card-price-label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; }
-    .card-price { font-size: 18px; font-weight: 800; color: var(--primary); }
-
-    .action-btn {
-      display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%;
-      background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%); color: #0F172A;
-      font-weight: 700; padding: 12px; border-radius: var(--radius-md); font-size: 14px; transition: var(--transition);
+    .card-desc { font-size: 13px; color: var(--text-muted); margin-bottom: 16px; flex-grow: 1; line-height: 1.6; }
+    
+    .card-footer {
+      margin-top: auto; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.06);
+      display: flex; flex-direction: column; gap: 12px;
     }
-    .action-btn:hover { background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 100%); box-shadow: 0 6px 18px rgba(245, 158, 11, 0.4); }
+    .card-price-row { display: flex; justify-content: space-between; align-items: baseline; }
+    .card-price-label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; }
+    .card-price { font-size: 19px; font-weight: 800; color: var(--primary); }
+
+    .btn-group { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+
+    .buy-btn {
+      background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%); color: #0F172A;
+      font-weight: 700; padding: 11px; border-radius: var(--radius-md); font-size: 13px;
+      border: none; cursor: pointer; text-align: center; transition: var(--transition);
+      display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+    }
+    .buy-btn:hover { background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 100%); box-shadow: 0 6px 18px rgba(245, 158, 11, 0.4); }
+
+    .tg-card-btn {
+      background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.3);
+      color: var(--accent-blue); font-weight: 600; padding: 11px; border-radius: var(--radius-md);
+      font-size: 13px; text-align: center; transition: var(--transition);
+      display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+    }
+    .tg-card-btn:hover { background: rgba(56, 189, 248, 0.2); border-color: var(--accent-blue); }
+
+    .quick-order-section {
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 0.95) 100%);
+      border: 1px solid var(--primary); border-radius: var(--radius-lg);
+      padding: 30px 24px; margin-top: 45px; position: relative; overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 25px var(--primary-glow);
+    }
+    .quick-order-title { font-size: 22px; font-weight: 800; color: var(--text-main); margin-bottom: 8px; }
+    .quick-order-sub { font-size: 14px; color: var(--text-muted); margin-bottom: 20px; }
+
+    .form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+    
+    .form-input, .form-select {
+      background: rgba(15, 23, 42, 0.8); border: 1px solid var(--border-color);
+      color: var(--text-main); padding: 12px 16px; border-radius: var(--radius-md);
+      font-size: 14px; font-family: inherit; outline: none; transition: var(--transition);
+      width: 100%;
+    }
+    .form-input:focus, .form-select:focus {
+      border-color: var(--primary); box-shadow: 0 0 12px var(--primary-glow);
+    }
+
+    .submit-order-btn {
+      background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+      color: #0F172A; font-weight: 800; font-size: 15px; border: none;
+      padding: 13px 24px; border-radius: var(--radius-md); cursor: pointer;
+      transition: var(--transition); display: flex; align-items: center; justify-content: center; gap: 8px;
+    }
+    .submit-order-btn:hover {
+      transform: translateY(-2px); box-shadow: 0 8px 20px rgba(245, 158, 11, 0.4);
+    }
+
+    .modal-overlay {
+      position: fixed; top:0; left:0; right:0; bottom:0;
+      background: rgba(11, 17, 32, 0.85); backdrop-filter: blur(8px);
+      display: flex; align-items: center; justify-content: center; z-index: 1000;
+      opacity: 0; pointer-events: none; transition: var(--transition);
+      padding: 20px;
+    }
+    .modal-overlay.active { opacity: 1; pointer-events: all; }
+    
+    .modal-box {
+      background: var(--bg-surface); border: 1px solid var(--border-hover);
+      border-radius: var(--radius-lg); padding: 28px; max-width: 460px; width: 100%;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.8), 0 0 30px var(--primary-glow);
+      transform: translateY(20px); transition: var(--transition); position: relative;
+    }
+    .modal-overlay.active .modal-box { transform: translateY(0); }
+
+    .modal-close {
+      position: absolute; top: 16px; right: 16px; background: none; border: none;
+      color: var(--text-muted); font-size: 22px; cursor: pointer; transition: var(--transition);
+    }
+    .modal-close:hover { color: var(--text-main); }
+
+    .success-alert {
+      display: none; background: rgba(16, 185, 129, 0.15); border: 1px solid var(--accent-green);
+      color: var(--accent-green); padding: 14px; border-radius: var(--radius-md);
+      font-size: 14px; text-align: center; font-weight: 600; margin-top: 14px;
+    }
 
     footer { margin-top: 60px; border-top: 1px solid var(--border-color); padding: 30px 20px 10px 20px; text-align: center; font-size: 13px; color: var(--text-muted); }
   </style>
@@ -173,8 +269,9 @@
         <div class="tagline">Центр опалювального та енергетичного обладнання</div>
       </div>
       <div class="contact-bar">
-        <a href="tel:+380935654438" class="phone-btn"><span>📞</span> +38 093 565 4438</a>
-        <a href="https://t.me/+380935654438" target="_blank" class="tg-link"><span>💬</span> Telegram Консультація</a>
+        <button class="quick-order-header-btn" onclick="openModal('Швидка консультація')">⚡ Швидка заявка</button>
+        <a href="#quick-order-block" class="phone-btn"><span>📞</span> Консультація</a>
+        <a href="#catalog" class="tg-link"><span>💬</span> Каталог</a>
       </div>
     </div>
   </header>
@@ -187,80 +284,228 @@
       <div class="feature-item"><span>📐</span><span><b>Професійний підбір</b> Інженерні розрахунки</span></div>
     </div>
 
-    <div class="section-title">Категорії обладнання</div>
-    <div class="grid-cats">
-      <a href="#boilers" class="cat-btn"><span class="cat-title">📂 КАТАЛОГ ВОДОНАГРІВАЧІВ</span><span class="cat-price">від 13 158 грн / 258 €</span></a>
-      <a href="#boilers" class="cat-btn"><span class="cat-title">♨️ БОЙЛЕРИ DRAŽICE</span><span class="cat-price">від 13 158 грн / 258 €</span></a>
-      <a href="#heating" class="cat-btn"><span class="cat-title">🔥 ОПАЛЮВАЛЬНІ КОТЛИ</span><span class="cat-price">від 32 000 грн</span></a>
-      <a href="#generators" class="cat-btn"><span class="cat-title">⚡ ГЕНЕРАТОРИ & СТАНЦІЇ</span><span class="cat-price">від 18 500 грн</span></a>
-      <a href="#tanks" class="cat-btn"><span class="cat-title">🛢️ БАКИ-НАКОПИЧУВАЧІ</span><span class="cat-price">від 21 000 грн</span></a>
-      <a href="#parts" class="cat-btn"><span class="cat-title">🔧 ТЕНИ ТА ЗАПЧАСТИНИ</span><span class="cat-price">від 1 200 грн</span></a>
+    <div class="section-title" id="catalog">Каталог обладнання</div>
+    
+    <div class="catalog-filter-bar">
+      <button class="filter-btn active" onclick="filterCategory('all', this)">🌐 Всі товари</button>
+      <button class="filter-btn" onclick="filterCategory('boilers', this)">♨️ Водонагрівачі Dražice</button>
+      <button class="filter-btn" onclick="filterCategory('heating', this)">🔥 Опалювальні котли</button>
+      <button class="filter-btn" onclick="filterCategory('generators', this)">⚡ Генератори & Станції</button>
+      <button class="filter-btn" onclick="filterCategory('tanks', this)">🛢️ Баки-накопичувачі</button>
+      <button class="filter-btn" onclick="filterCategory('parts', this)">🔧 ТЕНИ та запчастини</button>
     </div>
 
-    <div class="section-title">Основні рішення для дому</div>
     <div class="grid-showcase">
       
-      <!-- Картка 1: Бойлери -->
-      <div class="card" id="boilers">
+      <!-- Картка 1: Водонагрівачі Dražice -->
+      <div class="card" data-category="boilers">
         <div class="card-img-wrapper">
           <span class="card-badge">Хіт продажів</span>
-          <!-- Вставте шлях до фото у атрибут src="" -->
-          <img src="images/drazice.jpg" alt="Водонагрівачі Dražice" class="card-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-          <div class="card-img-fallback" style="display:none;">♨️</div>
+          <img src="data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300"><rect width="400" height="300" fill="%231e293b"/><rect x="130" y="40" width="140" height="220" rx="20" fill="%23334155" stroke="%23f59e0b" stroke-width="4"/><circle cx="200" cy="110" r="35" fill="%230f172a" stroke="%2338bdf8" stroke-width="3"/><text x="200" y="116" font-family="sans-serif" font-weight="bold" font-size="18" fill="%2338bdf8" text-anchor="middle">DRAŽICE</text><rect x="160" y="180" width="80" height="12" rx="6" fill="%23f59e0b"/><text x="200" y="230" font-family="sans-serif" font-size="14" fill="%2394a3b8" text-anchor="middle">Водонагрівач</text></svg>" alt="Водонагрівачі Dražice" class="card-img">
         </div>
         <div class="card-body">
           <h3 class="card-h3">Водонагрівачі Dražice</h3>
-          <p class="card-desc">Закритий керамічний ТЕН в емальованій гільзі. Настінні, плоскі OKHE ONE та SMART-моделі з високим ККД.</p>
+          <p class="card-desc">Сухий керамічний ТЕН в емальованій гільзі. Настінні, підлогові, плоскі OKHE ONE та SMART-моделі з найвищим ККД.</p>
           <div class="card-footer">
-            <div><div class="card-price-label">Ціна від</div><div class="card-price">13 158 грн / 258 €</div></div>
-            <a href="https://t.me/+380935654438" target="_blank" class="action-btn"><span>✈️</span> Підібрати в Telegram</a>
+            <div class="card-price-row">
+              <span class="card-price-label">Ціна від</span>
+              <span class="card-price">13 158 грн / 258 €</span>
+            </div>
+            <div class="btn-group">
+              <button class="buy-btn" onclick="openModal('Бойлер Dražice')">⚡ Швидке замовлення</button>
+              <button class="tg-card-btn" onclick="openModal('Консультація по Dražice')">💬 Консультація</button>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Картка 2: Котли -->
-      <div class="card" id="heating">
+      <!-- Картка 2: Опалювальні Котли -->
+      <div class="card" data-category="heating">
         <div class="card-img-wrapper">
           <span class="card-badge">Енергоефективно</span>
-          <img src="images/boiler-heating.jpg" alt="Опалювальні Котли" class="card-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-          <div class="card-img-fallback" style="display:none;">🔥</div>
+          <img src="data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300"><rect width="400" height="300" fill="%231e293b"/><rect x="110" y="50" width="180" height="200" rx="12" fill="%230f172a" stroke="%23f59e0b" stroke-width="4"/><path d="M200 80 Q225 130 200 165 Q175 130 200 80 Z" fill="%23f59e0b"/><path d="M200 110 Q212 140 200 155 Q188 140 200 110 Z" fill="%23fbbf24"/><text x="200" y="215" font-family="sans-serif" font-size="16" font-weight="bold" fill="%23f8fafc" text-anchor="middle">Котли Опалення</text></svg>" alt="Опалювальні Котли" class="card-img">
         </div>
         <div class="card-body">
           <h3 class="card-h3">Опалювальні Котли</h3>
-          <p class="card-desc">Твердопаливні, пелетні та газові системи для автоматизованого обігріву приватного будинку.</p>
+          <p class="card-desc">Твердопаливні, пелетні, електричні та газові системи для автоматизованого обігріву приватного будинку чи об'єкта.</p>
           <div class="card-footer">
-            <div><div class="card-price-label">Ціна від</div><div class="card-price">32 000 грн</div></div>
-            <a href="https://t.me/+380935654438" target="_blank" class="action-btn"><span>💬</span> Консультація з опалення</a>
+            <div class="card-price-row">
+              <span class="card-price-label">Ціна від</span>
+              <span class="card-price">32 000 грн</span>
+            </div>
+            <div class="btn-group">
+              <button class="buy-btn" onclick="openModal('Опалювальний котел')">⚡ Швидке замовлення</button>
+
+<button class="tg-card-btn" onclick="openModal('Консультація по котлах')">💬 Консультація</button>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- Картка 3: Генератори -->
-      <div class="card" id="generators">
+      <div class="card" data-category="generators">
         <div class="card-img-wrapper">
           <span class="card-badge">Автономність</span>
-          <img src="images/generator.jpg" alt="Генератори & Станції" class="card-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-          <div class="card-img-fallback" style="display:none;">⚡</div>
+          <img src="data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300"><rect width="400" height="300" fill="%231e293b"/><rect x="80" y="60" width="240" height="180" rx="10" fill="%23334155" stroke="%23f59e0b" stroke-width="4"/><polygon points="210,85 175,145 205,145 185,210 230,135 195,135" fill="%23f59e0b"/><text x="200" y="215" font-family="sans-serif" font-size="15" font-weight="bold" fill="%2338bdf8" text-anchor="middle">Генератори &amp; Станції</text></svg>" alt="Генератори & Зарядні Станції" class="card-img">
         </div>
         <div class="card-body">
           <h3 class="card-h3">Генератори & Станції</h3>
           <p class="card-desc">Інверторні, дизельні та бензинові генератори, а також портативні зарядні станції для безперебійного живлення.</p>
           <div class="card-footer">
-            <div><div class="card-price-label">Ціна від</div><div class="card-price">18 500 грн</div></div>
-            <a href="https://t.me/+380935654438" target="_blank" class="action-btn"><span>📝</span> Замовити розрахунок</a>
+            <div class="card-price-row">
+              <span class="card-price-label">Ціна від</span>
+              <span class="card-price">18 500 грн</span>
+            </div>
+            <div class="btn-group">
+              <button class="buy-btn" onclick="openModal('Генератор / Станція')">⚡ Швидке замовлення</button>
+              <button class="tg-card-btn" onclick="openModal('Консультація по генераторах')">💬 Консультація</button>
+            </div>
           </div>
         </div>
       </div>
 
+      <!-- Картка 4: Баки -->
+      <div class="card" data-category="tanks">
+        <div class="card-img-wrapper">
+          <span class="card-badge">Теплоакумуляція</span>
+          <img src="data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300"><rect width="400" height="300" fill="%231e293b"/><rect x="140" y="40" width="120" height="220" rx="60" fill="%230f172a" stroke="%2338bdf8" stroke-width="4"/><line x1="140" y1="100" x2="260" y2="100" stroke="%23334155" stroke-width="3"/><line x1="140" y1="160" x2="260" y2="160" stroke="%23334155" stroke-width="3"/><line x1="140" y1="200" x2="260" y2="200" stroke="%23334155" stroke-width="3"/><text x="200" y="135" font-family="sans-serif" font-size="14" font-weight="bold" fill="%23f59e0b" text-anchor="middle">Теплоакумулятор</text></svg>" alt="Баки-накопичувачі" class="card-img">
+        </div>
+        <div class="card-body">
+          <h3 class="card-h3">Теплоакумулятори & Баки</h3>
+          <p class="card-desc">Акумулюючі баки для систем опалення об'ємом від 200л до 2000л. Збереження тепла та економія палива до 35%.</p>
+          <div class="card-footer">
+            <div class="card-price-row">
+              <span class="card-price-label">Ціна від</span>
+              <span class="card-price">21 000 грн</span>
+            </div>
+            <div class="btn-group">
+              <button class="buy-btn" onclick="openModal('Теплоакумулятор')">⚡ Швидке замовлення</button>
+              <button class="tg-card-btn" onclick="openModal('Консультація по баках')">💬 Консультація</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Картка 5: Запчастини -->
+      <div class="card" data-category="parts">
+        <div class="card-img-wrapper">
+          <span class="card-badge">Запчастини</span>
+          <img src="data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300"><rect width="400" height="300" fill="%231e293b"/><path d="M150 220 L150 90 Q150 50 180 50 Q210 50 210 90 L210 220" fill="none" stroke="%23f59e0b" stroke-width="12" stroke-linecap="round"/><rect x="130" y="215" width="100" height="30" rx="4" fill="%2338bdf8"/><text x="200" y="135" font-family="sans-serif" font-size="14" font-weight="bold" fill="%23f8fafc" text-anchor="middle">ТЕН Нагрівальний</text></svg>" alt="ТЕНИ та елементи" class="card-img">
+        </div>
+        <div class="card-body">
+          <h3 class="card-h3">ТЕНИ & Комплектуючі</h3>
+          <p class="card-desc">Сухі та мокрі нагрівальні елементи, термостати, магнієві аноди та ремкомплекти для бойлерів Dražice та котлів.</p>
+          <div class="card-footer">
+            <div class="card-price-row">
+              <span class="card-price-label">Ціна від</span>
+              <span class="card-price">1 200 грн</span>
+            </div>
+            <div class="btn-group">
+              <button class="buy-btn" onclick="openModal('ТЕН або запчастина')">⚡ Швидке замовлення</button>
+              <button class="tg-card-btn" onclick="openModal('Консультація по запчастинах')">💬 Консультація</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="quick-order-section" id="quick-order-block">
+      <div class="quick-order-title">⚡ Форма швидкого замовлення</div>
+      <div class="quick-order-sub">Залиште ваш номер телефону — інженер зв'яжеться з вами протягом 5 хвилин для підбору та розрахунку!</div>
+      
+      <form onsubmit="handleFormSubmit(event, 'sectionAlert')">
+        <div class="form-grid">
+          <input type="text" placeholder="Ваше ім'я" class="form-input" required>
+          <input type="tel" placeholder="+38 (0__) ___-__-__" class="form-input" required>
+          <select class="form-select">
+            <option value="Водонагрівачі Dražice">Водонагрівачі Dražice</option>
+            <option value="Опалювальний котел">Опалювальний котел</option>
+            <option value="Генератор / Зарядна станція">Генератор / Зарядна станція</option>
+            <option value="Баки-накопичувачі">Баки-накопичувачі</option>
+            <option value="Консультація інженера">Потрібна консультація інженера</option>
+          </select>
+          <button type="submit" class="submit-order-btn"><span>🚀</span> Відправити заявку</button>
+        </div>
+        <div id="sectionAlert" class="success-alert">
+          ✅ Дякуємо! Вашу заявку прийнято. Ми перетелефонуємо вам найближчим часом.
+        </div>
+      </form>
+    </div>
+
+  </div>
+
+  <div class="modal-overlay" id="orderModal">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+      <div class="quick-order-title" style="font-size: 20px;">Замовлення в 1 клік</div>
+      <div class="quick-order-sub" id="modalProductSub">Товар: Запит консультації</div>
+      
+      <form onsubmit="handleFormSubmit(event, 'modalAlert')">
+        <input type="hidden" id="selectedProductInput" value="">
+        <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 16px;">
+          <input type="text" placeholder="Ваше ім'я" class="form-input" required>
+          <input type="tel" placeholder="+38 (0__) ___-__-__" class="form-input" required>
+          <textarea placeholder="Коментар до замовлення (необов'язково)" class="form-input" rows="3" style="resize:none;"></textarea>
+        </div>
+        <button type="submit" class="submit-order-btn" style="width: 100%;">Замовити дзвінок</button>
+        <div id="modalAlert" class="success-alert">
+          ✅ Дякуємо! Заявку оформлено. Менеджер вже обробляє ваш запит.
+        </div>
+      </form>
     </div>
   </div>
 
   <footer>
     <div class="container">
       <p>© 2026 <b>Е Н Е Р Г І Я</b>. Всі права захищено.</p>
-      <p>Телефон / Telegram: <a href="tel:+380935654438">+38 093 565 4438</a> | <a href="mailto:info@energiya.ua">info@energiya.ua</a></p>
     </div>
   </footer>
+
+  <script>
+    function filterCategory(category, btnElement) {
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      filterBtns.forEach(btn => btn.classList.remove('active'));
+      if(btnElement) btnElement.classList.add('active');
+
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+
+    function openModal(productName) {
+      document.getElementById('modalProductSub').innerText = 'Товар: ' + productName;
+      document.getElementById('selectedProductInput').value = productName;
+      document.getElementById('orderModal').classList.add('active');
+    }
+
+    function closeModal() {
+      document.getElementById('orderModal').classList.remove('active');
+      document.getElementById('modalAlert').style.display = 'none';
+    }
+
+    document.getElementById('orderModal').addEventListener('click', function(e) {
+      if(e.target === this) closeModal();
+    });
+
+    function handleFormSubmit(e, alertId) {
+      e.preventDefault();
+      const alertEl = document.getElementById(alertId);
+      alertEl.style.display = 'block';
+      e.target.reset();
+      
+      if(alertId === 'modalAlert') {
+        setTimeout(() => {
+          closeModal();
+        }, 2500);
+      }
+    }
+  </script>
 
 </body>
 </html>
