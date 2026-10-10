@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Енергія Store — Каталог кліматичного та опалювального обладнання</title>
+<style>
+
+:root {
+  --bg-dark: #060c17;
+  --bg-metallic: linear-gradient(135deg, #060c17 0%, #0e1b33 50%, #071122 100%);
+  --card-bg: #0d1a2f;
+  --card-bg-hover: #12223f;
+  --header-bg: #040810;
+  --gold-dark: #8a6416;
+  --gold-primary: #c5a059;
+  --gold-light: #e5c887;
+  --gold-gradient: linear-gradient(135deg, #8a6416 0%, #c5a059 50%, #9e7520 100%);
+  --viber-color: #7360f2;
+  --telegram-color: #229ed9;
+  --blue-metallic: linear-gradient(180deg, #162a4a 0%, #0c182c 100%);
+  --border-color: rgba(197, 160, 89, 0.25);
+  --border-color-hover: rgba(197, 160, 89, 0.6);
+  --text-main: #f1f5f9;
+  --text-muted: #94a3b8;
+  --radius: 10px;
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
+body { background: var(--bg-dark); background-image: var(--bg-metallic); color: var(--text-main); line-height: 1.6; min-height: 100vh; }
+
+.top-bar {
+  background: #02050b;
+  border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+  padding: 0.6rem 2rem;
+  font-size: 0.9rem;
+  color: #94a3b8;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.discount-badge {
+  color: #e5c887;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(197, 160, 89, 0.15);
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(197, 160, 89, 0.3);
+}
+.top-contacts { display: flex; align-items: center; gap: 15px; }
+.top-contacts a { text-decoration: none; font-weight: 700; transition: 0.2s; }
+.top-contacts a:hover { opacity: 0.85; }
+
+header {
+  background: var(--header-bg);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1.2rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.7);
+}
+.header-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.logo span {
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 900;
+}
+
+.search-bar {
+  display: flex;
+  flex: 1;
+  max-width: 450px;
+  background: #091322;
+  border: 1px solid var(--border-color);
+  border-radius: 25px;
+  overflow: hidden;
+  padding: 2px 5px;
+}
+.search-bar input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 0.6rem 1rem;
+  color: #fff;
+  outline: none;
+  font-size: 0.95rem;
+}
+.search-bar button {
+  background: var(--gold-gradient);
+  border: none;
+  color: #060c17;
+  padding: 0 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+.nav-links { display: flex; align-items: center; gap: 0.8rem; flex-wrap: wrap; }
+.nav-btn {
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: 0.3s;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: none;
+}
+.btn-tg-header { background: var(--telegram-color); color: #fff; }
+.btn-viber-header { background: var(--viber-color); color: #fff; }
+.btn-tel-header { background: var(--blue-metallic); color: var(--gold-primary); border: 1px solid var(--border-color); }
+.nav-btn:hover { opacity: 0.9; transform: translateY(-1px); }
+
+.features-bar {
+  max-width: 1300px;
+  margin: 1.5rem auto 0;
+  padding: 0 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+.feature-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 1rem 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.feature-icon { font-size: 1.8rem; }
+.feature-text strong { display: block; font-size: 0.95rem; color: #fff; }
+.feature-text span { font-size: 0.85rem; color: var(--text-muted); }
+
+.consult-banner {
+  max-width: 1300px;
+  margin: 1.5rem auto;
+  background: linear-gradient(135deg, #0e223d 0%, #081527 100%);
+  border: 1px solid rgba(197,160,89,0.3);
+  border-radius: 10px;
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.consult-banner h3 { font-size: 1.3rem; color: #fff; margin-bottom: 0.4rem; }
+.consult-banner p { color: #94a3b8; font-size: 0.95rem; }
+
+.catalog-section { max-width: 1300px; margin: 2rem auto; padding: 0 1.5rem; }
+.section-header { text-align: center; margin-bottom: 2rem; }
+.section-header h2 {
+  font-size: 2.2rem;
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.section-header p { color: var(--text-muted); margin-top: 0.5rem; font-size: 1.05rem; }
+
+.filter-bar { display: flex; gap: 0.8rem; overflow-x: auto; padding-bottom: 1rem; margin-bottom: 2rem; }
+.filter-btn {
+  padding: 0.7rem 1.4rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: 0.3s;
+  font-size: 0.95rem;
+}
+.filter-btn:hover, .filter-btn.active {
+  background: var(--gold-gradient);
+  color: #060c17;
+  border-color: var(--gold-light);
+  font-weight: 700;
+  box-shadow: 0 0 12px rgba(197, 160, 89, 0.3);
+}
+
+.grid-showcase { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 1.8rem; }
+.card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  position: relative;
+}
+.card:hover {
+  transform: translateY(-6px);
+  border-color: var(--border-color-hover);
+  background: var(--card-bg-hover);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.7);
+}
+.card-img-wrapper {
+  height: 180px;
+  background: #08111e;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid rgba(197,160,89,0.15);
+}
+.card-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: var(--gold-gradient);
+  color: #060c17;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.card-body { padding: 1.3rem; display: flex; flex-direction: column; flex: 1; justify-content: space-between; }
+.card-category { font-size: 0.78rem; text-transform: uppercase; color: var(--gold-primary); font-weight: 700; letter-spacing: 1px; margin-bottom: 0.3rem; }
+.card-title { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.6rem; color: #fff; line-height: 1.3; }
+.card-specs { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.2rem; }
+.card-specs li { list-style: none; margin-bottom: 3px; display: flex; align-items: center; gap: 6px; }
+.card-specs li::before { content: "•"; color: var(--gold-primary); font-weight: bold; }
+
+.card-price-row { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 1rem; padding-top: 0.8rem; border-top: 1px solid rgba(255,255,255,0.08); }
+.card-price-label { font-size: 0.8rem; color: var(--text-muted); }
+.card-price { font-size: 1.35rem; font-weight: 800; color: var(--gold-primary); }
+
+.btn-group-social { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px; }
+.btn-action-soc {
+  padding: 0.6rem 0.4rem;
+  border-radius: 6px;
+  border: none;
+  font-weight: 700;
+  font-size: 0.82rem;
+  cursor: pointer;
+  text-align: center;
+  transition: 0.3s;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-tg-order { background: var(--telegram-color); color: #fff; }
+.btn-viber-order { background: var(--viber-color); color: #fff; }
+.btn-consult-form {
+  width: 100%;
+  padding: 0.6rem;
+  background: var(--blue-metallic);
+  color: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  text-align: center;
+}
+.btn-consult-form:hover { border-color: var(--gold-primary); color: var(--gold-primary); }
+
+.feedback-section {
+  max-width: 900px;
+  margin: 4rem auto;
+  background: var(--card-bg);
+  padding: 2.5rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow);
+  position: relative;
+}
+.feedback-section::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--gold-gradient);
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+.feedback-section h3 { font-size: 1.6rem; color: #fff; margin-bottom: 0.5rem; }
+.feedback-section p { color: var(--text-muted); margin-bottom: 1.5rem; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.form-group-full { grid-column: 1 / -1; }
+.form-input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  background: #060c17;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  color: #fff;
+  outline: none;
+  font-size: 0.95rem;
+}
+.form-input:focus { border-color: var(--gold-primary); }
+.submit-btn {
+  grid-column: 1 / -1;
+  padding: 0.9rem;
+  background: var(--gold-gradient);
+  color: #060c17;
+  border: none;
+  border-radius: 6px;
+  font-weight: 800;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.submit-btn:hover { opacity: 0.9; box-shadow: 0 0 15px rgba(197,160,89,0.4); }
+.alert-success {
+  display: none;
+  margin-top: 1rem;
+  padding: 1rem;
+  background: rgba(34, 158, 217, 0.2);
+  border: 1px solid var(--telegram-color);
+  border-radius: 6px;
+  color: #fff;
+  text-align: center;
+}
+
+footer {
+  background: var(--header-bg);
+  border-top: 1px solid var(--border-color);
+  color: var(--text-muted);
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.9rem;
+  margin-top: 4rem;
+}
+
+@media (max-width: 768px) {
+  .header-container { flex-direction: column; align-items: stretch; }
+  .form-grid { grid-template-columns: 1fr; }
+  .top-bar { flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <div style="display:flex; align-items:center; gap:15px; flex-wrap:wrap;">
+    <div class="discount-badge" style="color:#e5c887; font-weight:700; background:rgba(197,160,89,0.15); padding:4px 12px; border-radius:20px; border:1px solid rgba(197,160,89,0.3);">
+      <span>Діє гнучка система знижок!</span>
+    </div>
+    <div style="color:#e5c887; font-weight:600; font-size:0.9rem; display:flex; align-items:center; gap:6px;">
+      📋 <span>Повний каталог товарів — за запитом у Viber / Telegram</span>
+    </div>
+  </div>
+  <div class="top-contacts">
+    <a href="tel:+380935654438" style="color:#e5c887;">📞 +38 (093) 565-44-38</a>
+    <a href="https://t.me/+380935654438" target="_blank" style="color:#229ed9;">Telegram</a>
+    <a href="viber://chat?number=%2B380935654438" style="color:#7360f2;">Viber</a>
+  </div>
+</div>
+
+<header>
+  <div class="header-container">
+    <a href="#" class="logo">⚡ <span>ЕНЕРГІЯ STORE</span></a>
+    
+    <div class="search-bar">
+      <input type="text" id="searchInput" onkeyup="filterProducts()" placeholder="Пошук обладнання (напр. Drazice, генератор, 500л)...">
+      <button onclick="filterProducts()">Шукати</button>
+    </div>
+    
+    <div class="nav-links">
+      <a href="#catalog" class="nav-btn btn-tel-header">Каталог</a>
+      <a href="https://t.me/+380935654438" target="_blank" class="nav-btn btn-tg-header"> Telegram</a>
+      <a href="viber://chat?number=%2B380935654438" class="nav-btn btn-viber-header"> Viber</a>
+      <a href="tel:+380935654438" class="nav-btn btn-tel-header">📞 +38 (093) 565-44-38</a>
+    </div>
+  </div>
+</header>
+
+<div class="features-bar">
+  <div class="feature-card">
+    <div class="feature-icon">🚚</div>
+    <div class="feature-text">
+      <strong>Швидка доставка</strong>
+      <span>По всій Україні</span>
+    </div>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon">🛡️</div>
+    <div class="feature-text">
+      <strong>Офіційна гарантія</strong>
+      <span>Від виробника</span>
+    </div>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon">🏷️</div>
+    <div class="feature-text">
+      <strong>Гнучкі знижки</strong>
+      <span>На все обладнання</span>
+    </div>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon">📋</div>
+    <div class="feature-text">
+      <strong>Повний каталог</strong>
+      <span>За запитом у Viber / TG</span>
+    </div>
+  </div>
+</div>
+
+<div class="consult-banner">
+  <div>
+    <h3>Потрібна допомога з підбором або повний каталог товарів?</h3>
+    <p>Напишіть нам у Viber або Telegram, щоб отримати повний каталог товарів та прайс-лист за запитом, або телефонуйте: <strong style="color:#e5c887;">+38 (093) 565-44-38</strong></p>
+  </div>
+  <div style="display:flex; gap:12px; flex-wrap:wrap;">
+    <a href="https://t.me/+380935654438" target="_blank" style="background:#229ed9; color:#fff; padding:0.8rem 1.4rem; border-radius:8px; text-decoration:none; font-weight:700;">Telegram</a>
+    <a href="viber://chat?number=%2B380935654438" style="background:#7360f2; color:#fff; padding:0.8rem 1.4rem; border-radius:8px; text-decoration:none; font-weight:700;">Viber</a>
+  </div>
+</div>
+
+<section class="catalog-section" id="catalog">
+  <div class="section-header">
+    <h2>Каталог Обладнання</h2>
+    <p>Опалення, водопостачання, накопичувачі та автономне енергозабезпечення</p>
+    <div style="margin-top:0.8rem; color:#e5c887; font-size:1rem; font-weight:600; background:rgba(197,160,89,0.1); display:inline-block; padding:6px 18px; border-radius:20px; border:1px solid rgba(197,160,89,0.25);">
+      📋 Повний каталог товарів та прайс-лист надаємо за запитом у Viber / Telegram
+    </div>
+  </div>
+
+  <div class="filter-bar">
+    <button class="filter-btn active" onclick="filterCategory('all', this)">Всі товари (14)</button>
+    <button class="filter-btn" onclick="filterCategory('drazice', this)">Бойлери Drazice</button>
+    <button class="filter-btn" onclick="filterCategory('boilers', this)">Котли опалення</button>
+    <button class="filter-btn" onclick="filterCategory('generators', this)">Генератори & Екофлоу</button>
+    <button class="filter-btn" onclick="filterCategory('tanks', this)">Буферні ємності</button>
+    <button class="filter-btn" onclick="filterCategory('parts', this)">Комплектуючі & ТЕНИ</button>
+  </div>
+
+  <div class="grid-showcase" id="productGrid">
+
+    <div class="card" data-category="drazice">
+      <div class="card-img-wrapper">
+        <span class="card-badge">Хіт продажів</span>
+        <img src="images/drazice-okhe-one-80.jpg" alt="Drazice OKHE ONE 80" style="max-height: 160px; max-width: 90%; object-fit: contain;" onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="img-fallback" style="display:none; font-size:3.5rem; color:#c5a059; align-items:center; justify-content:center; width:100%; height:100%;">💧</div>
+      </div>
+      <div class="card-body">
+        <div>
+          <div class="card-category">Бойлери Drazice</div>
+          <h3 class="card-title">Drazice OKHE ONE 80</h3>
+          <ul class="card-specs">
+            <li>Плоский корпус (глибина 318 мм)</li>
+            <li>Сухий ТЕН 2.0 кВт</li>
+            <li>Об'єм: 80 літрів</li>
+          </ul>
+        </div>
+        <div>
+          <div class="card-price-row">
+            <span class="card-price-label">Ціна:</span>
+            <span class="card-price">15 400 грн</span>
+          </div>
+          <div class="btn-group-social">
+            <button class="btn-action-soc btn-tg-order" onclick="directOrderTelegram('Drazice OKHE ONE 80', '15 400 грн')">Telegram</button>
+            <button class="btn-action-soc btn-viber-order" onclick="directOrderViber('Drazice OKHE ONE 80', '15 400 грн')">Viber</button>
+          </div>
+          <button class="btn-consult-form" onclick="scrollToForm('Drazice OKHE ONE 80')">Замовити консультацію</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-category="drazice">
+      <div class="card-img-wrapper">
+        <span class="card-badge">Настінний</span>
+        <img src="images/drazice-okce-100.jpg" alt="Drazice OKCE 100" style="max-height: 160px; max-width: 90%; object-fit: contain;" onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="img-fallback" style="display:none; font-size:3.5rem; color:#c5a059; align-items:center; justify-content:center; width:100%; height:100%;">🛁</div>
+      </div>
+      <div class="card-body">
+        <div>
+          <div class="card-category">Бойлери Drazice</div>
+          <h3 class="card-title">Drazice OKCE 100</h3>
+          <ul class="card-specs">
+            <li>Електричний водонагрівач</li>
+            <li>Сухий керамічний ТЕН</li>
+            <li>Об'єм: 100 літрів</li>
+          </ul>
+        </div>
+        <div>
+          <div class="card-price-row">
+            <span class="card-price-label">Ціна:</span>
+            <span class="card-price">13 158 грн</span>
+          </div>
+          <div class="btn-group-social">
+            <button class="btn-action-soc btn-tg-order" onclick="directOrderTelegram('Drazice OKCE 100', '13 158 грн')">Telegram</button>
+            <button class="btn-action-soc btn-viber-order" onclick="directOrderViber('Drazice OKCE 100', '13 158 грн')">Viber</button>
+          </div>
+          <button class="btn-consult-form" onclick="scrollToForm('Drazice OKCE 100')">Замовити консультацію</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-category="drazice">
+      <div class="card-img-wrapper">
+        <span class="card-badge">Підлоговий</span>
+        <img src="images/drazice-okce-200.jpg" alt="Drazice OKCE 200 S" style="max-height: 160px; max-width: 90%; object-fit: contain;" onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="img-fallback" style="display:none; font-size:3.5rem; color:#c5a059; align-items:center; justify-content:center; width:100%; height:100%;">🏭</div>
+      </div>
+      <div class="card-body">
+        <div>
+          <div class="card-category">Бойлери Drazice</div>
+          <h3 class="card-title">Drazice OKCE 200 S</h3>
+          <ul class="card-specs">
+            <li>Стаціонарний бойлер</li>
+            <li>Ізоляція Thermo Gen 2</li>
+            <li>Об'єм: 200 літрів</li>
+          </ul>
+        </div>
+        <div>
+          <div class="card-price-row">
+            <span class="card-price-label">Ціна:</span>
+            <span class="card-price">24 500 грн</span>
+          </div>
+          <div class="btn-group-social">
+            <button class="btn-action-soc btn-tg-order" onclick="directOrderTelegram('Drazice OKCE 200 S', '24 500 грн')">Telegram</button>
+            <button class="btn-action-soc btn-viber-order" onclick="directOrderViber('Drazice OKCE 200 S', '24 500 грн')">Viber</button>
+          </div>
+          <button class="btn-consult-form" onclick="scrollToForm('Drazice OKCE 200 S')">Замовити консультацію</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-category="boilers">
+      <div class="card-img-wrapper">
+        <span class="card-badge">Твердопаливний</span>
+        <img src="images/kotel-marten-20.jpg" alt="Котёл Marten Premium 20 кВт" style="max-height: 160px; max-width: 90%; object-fit: contain;" onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="img-fallback" style="display:none; font-size:3.5rem; color:#c5a059; align-items:center; justify-content:center; width:100%; height:100%;">🔥</div>
+      </div>
+      <div class="card-body">
+        <div>
+          <div class="card-category">Котли опалення</div>
+          <h3 class="card-title">Котёл Marten Premium 20 кВт</h3>
+          <ul class="card-specs">
+            <li>Потужність: 24 кВт</li>
+            <li>ККД 85%, топковий об'єм 68л</li>
+            <li>Площа: до 200 м²</li>
+          </ul>
+        </div>
+        <div>
+          <div class="card-price-row">
+            <span class="card-price-label">Ціна:</span>
+            <span class="card-price">34 500 грн</span>
+          </div>
+          <div class="btn-group-social">
+            <button class="btn-action-soc btn-tg-order" onclick="directOrderTelegram('Котёл Marten Premium 20 кВт', '34 500 грн')">Telegram</button>
+            <button class="btn-action-soc btn-viber-order" onclick="directOrderViber('Котёл Marten Premium 20 кВт', '34 500 грн')">Viber</button>
+          </div>
+          <button class="btn-consult-form" onclick="scrollToForm('Котёл Marten Premium 20 кВт')">Замовити консультацію</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-category="boilers">
+      <div class="card-img-wrapper">
+        <span class="card-badge">Автоматика</span>
+        <img src="images/kotel-focus-25.jpg" alt="Пеллетный котёл FOCUS 25 кВт" style="max-height: 160px; max-width: 90%; object-fit: contain;" onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="img-fallback" style="display:none; font-size:3.5rem; color:#c5a059; align-items:center; justify-content:center; width:100%; height:100%;">⚙️</div>
+      </div>
+      <div class="card-body">
+        <div>
+          <div class="card-category">Котли опалення</div>
+          <h3 class="card-title">Пеллетный котёл FOCUS 25 кВт</h3>
+          <ul class="card-specs">
+            <li>Автоматична подача пелети</li>
+            <li>Автопальник з очисткою 5 покоління</li>
+            <li>Керування GSM & Wi-Fi</li>
+          </ul>
+        </div>
+        <div>
+          <div class="card-price-row">
+            <span class="card-price-label">Ціна:</span>
+            <span class="card-price">68 000 грн</span>
+          </div>
+          <div class="btn-group-social">
+            <button class="btn-action-soc btn-tg-order" onclick="directOrderTelegram('Пеллетный котёл FOCUS 25 кВт', '68 000 грн')">Telegram</button>
+            <button class="btn-action-soc btn-viber-order" onclick="directOrderViber('Пеллетный котёл FOCUS 25 кВт', '68 000 грн')">Viber</button>
+          </div>
+          <button class="btn-consult-form" onclick="scrollToForm('Пеллетный котёл FOCUS 25 кВт')">Замовити консультацію</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-category="boilers">
+      <div class="card-img-wrapper">
+        <span class="card-badge">Електричний</span>
+        <img src="images/kotel-tenko-6.jpg" alt="Tenko Digital 6 кВт" style="max-height: 160px; max-width: 90%; object-fit: contain;" onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="img-fallback" style="display:none; font-size:3.5rem; color:#c5a059; align-items:center; justify-content:center; width:100%; height:100%;">⚡</div>
+      </div>
+      <div class="card-body">
+        <div>
+          <div class="card-category">Котли опалення</div>
+          <h3 class="card-title">Tenko Digital 6 кВт 220V/380V</h3>
+          <ul class="card-specs">
+            <li>Цифрове керування</li>
+            <li>Безшумна робота (реле)</li>
+            <li>Площа: до 70 м²</li>
+          </ul>
+        </div>
+        <div>
+          <div class="card-price-row">
+            <span class="card-price-label">Ціна:</span>
+            <span class="card-price">12 500 грн</span>
+          </div>
+          <div class="btn-group-social">
+            <button class="btn-action-soc btn-tg-order" onclick="directOrderTelegram('Tenko Digital 6 кВт', '12 500 грн')">Telegram</button>
+            <button class="btn-action-soc btn-viber-order" onclick="directOrderViber('Tenko Digital 6 кВт', '12 500 грн')">Viber</button>
+          </div>
+          <button class="btn-consult-form" onclick="scrollToForm('Tenko Digital 6 кВт')">Замовити консультацію</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-category="generators">
+      <div class="card-img-wrapper">
+        <span class="card-badge">Інверторний</span>
+        <img src="images/generator-ks2000is.jpg" alt="Könner&Söhnen KS 2000iS" style="max-height: 160px; max-width: 90%; object-fit: contain;" onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="img-fallback" style="display:none; font-size:3.5rem; color:#c5a059; align-items:center; justify-content:center; width:100%; height:100%;">🔌</div>
+      </div>
+      <div class="card-body">
+        <div>
+          <div class="card-category">Генератори & Екофлоу</div>
+          <h3 class="card-title">Könner&Söhnen KS 2000iS</h3>
+          <ul class="card-specs">
+            <li>Чиста синусоїда (для котлів)</li>
+            <li>Потужність: 1.8 - 2.0 кВт</li>
+            <li>Тихий (62 дБ)</li>
+          </ul>
+        </div>
+        <div>
+          <div class="card-price-row">
+            <span class="card-price-label">Ціна:</span>
+            <span class="card-price">18 500 грн</span>
+          </div>
+          <div class="btn-group-social">
+            <button class="btn-action-soc btn-tg-order" onclick="directOrderTelegram('KS 2000iS', '18 500 грн')">Telegram</button>
+            <button class="btn-action-soc btn-viber-order" onclick="directOrderViber('KS 2000iS', '18 500 грн')">Viber</button>
+          </div>
+          <button class="btn-consult-form" onclick="scrollToForm('KS 2000iS')">Замовити консультацію</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-category="generators">
+      <div class="card-img-wrapper">
+        <span class="card-badge">Дизель</span>
+        <img src="images/generator-matari-mda9000.jpg" alt="Matari MDA9000SE" style="max-height: 160px; max-width: 90%; object-fit: contain;" onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="img-fallback" style="display:none; font-size:3.5rem; color:#c5a059; align-items:center; justify-content:center; width:100%; height:100%;">⛽</div>
+      </div>
+      <div class="card-body">
+        <div>
+          <div class="card-category">Генератори & Екофлоу</div>
+          <h3 class="card-title">Matari MDA9000SE (6.5 кВт)</h3>
+          <ul class="card-specs">
+            <li>Шумозахисний кожух</li>
+            <li>Електростарт & АВР (готовність)</li>
+            <li>Витрата: 1.6 л/год</li>
+          </ul>
+        </div>
+        <div>
+          <div class="card-price-row">
+            <span class="card-price-label">Ціна:</span>
+            <span class="card-price">58 000 грн</span>
+          </div>
+          <div class="btn-group-social">
+            <button class="btn-action-soc btn-tg-order" onclick="directOrderTelegram('Matari MDA9000SE', '58 000 грн')">Telegram</button>
+            <button class="btn-action-soc btn-viber-order" onclick="directOrderViber('Matari MDA9000SE', '58 000 грн')">Viber</button>
+          </div>
+          <button class="btn-consult-form" onclick="scrollToForm('Matari MDA9000SE')">Замовити консультацію</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-category="generators">
+      <div class="card-img-wrapper">
+        <span class="card-badge">Зарядна станція</span>
+        <img src="images/ecoflow-delta-2.jpg" alt="EcoFlow DELTA 2" style="max-height: 160px; max-width: 90%; object-fit: contain;" onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="img-fallback" style="display:none; font-size:3.5rem; color:#c5a059; align-items:center; justify-content:center; width:100%; height:100%;">🔋</div>
+      </div>
+      <div class="card-body">
+        <div>
+          <div class="card-category">Генератори & Екофлоу</div>
+          <h3 class="card-title">EcoFlow DELTA 2 (1024 Вт·год)</h3>
+          <ul class="card-specs">
+            <li>LiFePO4 акумулятор (3000+ циклів)</li>
+            <li>Зарядка до 80% за 50 хвилин</li>
+            <li>Потужність: 1800 Вт</li>
+          </ul>
+        </div>
+        <div>
+          <div class="card-price-row">
+            <span class="card-price-label">Ціна:</span>
+            <span class="card-price">39 999 грн</span>
+          </div>
+          <div class="btn-group-social">
+            <button class="btn-action-soc btn-tg-order" onclick="directOrderTelegram('EcoFlow DELTA 2', '39 999 грн')">Telegram</button>
+            <button class="btn-action-soc btn-viber-order" onclick="directOrderViber('EcoFlow DELTA 2', '39 999 грн')">Viber</button>
+          </div>
+          <button class="btn-consult-form" onclick="scrollToForm('EcoFlow DELTA 2')">Замовити консультацію</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-category="tanks">
+      <div class="card-img-wrapper">
+        <span class="card-badge">500 літрів</span>
+        <img src="images/tank-drazice-nad500.jpg" alt="Drazice NAD 500 v1" style="max-height: 160px; max-width: 90%; object-fit: contain;" onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="img-fallback" style="display:none; font-size:3.5rem; color:#c5a059; align-items:center; justify-content:center; width:100%; height:100%;">🛢️</div>
+      </div>
+      <div class="card-body">
+        <div>
+          <div class="card-category">Буферні ємності</div>
+          <h3 class="card-title">Drazice NAD 500 v1</h3>
+          <ul class="card-specs">
+            <li>Акумулююча бак-ємність</li>
+            <li>Якісна ізоляція 42мм</li>
+            <li>Підключення котлів будь-яких типів</li>
+          </ul>
+        </div>
+        <div>
+          <div class="card-price-row">
+            <span class="card-price-label">Ціна:</span>
+            <span class="card-price">22 400 грн</span>
+          </div>
+          <div class="btn-group-social">
+            <button class="btn-action-soc btn-tg-order" onclick="directOrderTelegram('Drazice NAD 500 v1', '22 400 грн')">Telegram</button>
+            <button class="btn-action-soc btn-viber-order" onclick="directOrderViber('Drazice NAD 500 v1', '22 400 грн')">Viber</button>
+          </div>
+          <button class="btn-consult-form" onclick="scrollToForm('Drazice NAD 500 v1')">Замовити консультацію</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-category="tanks">
+      <div class="card-img-wrapper">
+        <span class="card-badge">1000 літрів</span>
+        <img src="images/tank-buffer-1000l.jpg" alt="Теплоаккумулятор 1000 л" style="max-height: 160px; max-width: 90%; object-fit: contain;" onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="img-fallback" style="display:none; font-size:3.5rem; color:#c5a059; align-items:center; justify-content:center; width:100%; height:100%;">🏗️</div>
+      </div>
+      <div class="card-body">
+        <div>
+          <div class="card-category">Буферні ємності</div>
+          <h3 class="card-title">Теплоаккумулятор Буферна ємність 1000 л</h3>
+          <ul class="card-specs">
+            <li>Економія палива до 35%</li>
+            <li>Захист котла від перегріву</li>
+            <li>Товщина сталі: 3 мм</li>
+          </ul>
+        </div>
+        <div>
+          <div class="card-price-row">
+            <span class="card-price-label">Ціна:</span>
+            <span class="card-price">36 000 грн</span>
+          </div>
+          <div class="btn-group-social">
+            <button class="btn-action-soc btn-tg-order" onclick="directOrderTelegram('Теплоаккумулятор 1000 л', '36 000 грн')">Telegram</button>
+            <button class="btn-action-soc btn-viber-order" onclick="directOrderViber('Теплоаккумулятор 1000 л', '36 000 грн')">Viber</button>
+          </div>
+          <button class="btn-consult-form" onclick="scrollToForm('Теплоаккумулятор 1000 л')">Замовити консультацію</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-category="parts">
+      <div class="card-img-wrapper">
+        <span class="card-badge">Запчастини</span>
+        <img src="images/ten-drazice-2kw.jpg" alt="Сухий ТЕН Drazice 2.0 кВт" style="max-height: 160px; max-width: 90%; object-fit: contain;" onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="img-fallback" style="display:none; font-size:3.5rem; color:#c5a059; align-items:center; justify-content:center; width:100%; height:100%;">🔩</div>
+      </div>
+      <div class="card-body">
+        <div>
+          <div class="card-category">Комплектуючі & ТЕНИ</div>
+          <h3 class="card-title">Сухий ТЕН Drazice 2.0 кВт</h3>
+          <ul class="card-specs">
+            <li>Керамічний нагрівальний елемент</li>
+            <li>Оригінал (Чехія)</li>
+            <li>Для моделей OKCE, OKHE</li>
+          </ul>
+        </div>
+        <div>
+          <div class="card-price-row">
+            <span class="card-price-label">Ціна:</span>
+            <span class="card-price">1 450 грн</span>
+          </div>
+          <div class="btn-group-social">
+            <button class="btn-action-soc btn-tg-order" onclick="directOrderTelegram('Сухий ТЕН Drazice 2.0 кВт', '1 450 грн')">Telegram</button>
+            <button class="btn-action-soc btn-viber-order" onclick="directOrderViber('Сухий ТЕН Drazice 2.0 кВт', '1 450 грн')">Viber</button>
+          </div>
+          <button class="btn-consult-form" onclick="scrollToForm('Сухий ТЕН Drazice')">Замовити консультацію</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-category="parts">
+      <div class="card-img-wrapper">
+        <span class="card-badge">Автоматика</span>
+        <img src="images/thermostat-kr11.jpg" alt="Термостат KR-11" style="max-height: 160px; max-width: 90%; object-fit: contain;" onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="img-fallback" style="display:none; font-size:3.5rem; color:#c5a059; align-items:center; justify-content:center; width:100%; height:100%;">🌡️</div>
+      </div>
+      <div class="card-body">
+        <div>
+          <div class="card-category">Комплектуючі & ТЕНИ</div>
+          <h3 class="card-title">Термостат капиллярный KR-11</h3>
+          <ul class="card-specs">
+            <li>Діапазон: 5°C - 80°C</li>
+            <li>Надійне регулювання температури</li>
+            <li>Для водонагрівачів та котлів</li>
+          </ul>
+        </div>
+        <div>
+          <div class="card-price-row">
+            <span class="card-price-label">Ціна:</span>
+            <span class="card-price">850 грн</span>
+          </div>
+          <div class="btn-group-social">
+            <button class="btn-action-soc btn-tg-order" onclick="directOrderTelegram('Термостат KR-11', '850 грн')">Telegram</button>
+            <button class="btn-action-soc btn-viber-order" onclick="directOrderViber('Термостат KR-11', '850 грн')">Viber</button>
+          </div>
+          <button class="btn-consult-form" onclick="scrollToForm('Термостат KR-11')">Замовити консультацію</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-category="parts">
+      <div class="card-img-wrapper">
+        <span class="card-badge">Захист</span>
+        <img src="images/anode-m8.jpg" alt="Магниевый анод M8" style="max-height: 160px; max-width: 90%; object-fit: contain;" onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="img-fallback" style="display:none; font-size:3.5rem; color:#c5a059; align-items:center; justify-content:center; width:100%; height:100%;">🛡️</div>
+      </div>
+      <div class="card-body">
+        <div>
+          <div class="card-category">Комплектуючі & ТЕНИ</div>
+          <h3 class="card-title">Магниевый анод Drazice M8</h3>
+          <ul class="card-specs">
+            <li>Захист бака від корозії</li>
+            <li>Розміри: 400 мм, діаметр 25 мм</li>
+            <li>Різьба: M8</li>
+          </ul>
+        </div>
+        <div>
+          <div class="card-price-row">
+            <span class="card-price-label">Ціна:</span>
+            <span class="card-price">650 грн</span>
+          </div>
+          <div class="btn-group-social">
+            <button class="btn-action-soc btn-tg-order" onclick="directOrderTelegram('Магниевый анод M8', '650 грн')">Telegram</button>
+            <button class="btn-action-soc btn-viber-order" onclick="directOrderViber('Магниевый анод M8', '650 грн')">Viber</button>
+          </div>
+          <button class="btn-consult-form" onclick="scrollToForm('Магниевый анод M8')">Замовити консультацію</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="feedback-section" id="feedback-form">
+  <h3>Форма швидкого замовлення та консультації</h3>
+  <p>Залиште свої дані, і наш спеціаліст зв'яжеться з вами протягом 5 хвилин!</p>
+  
+  <form onsubmit="handleFeedbackSubmit(event)">
+    <div class="form-grid">
+      <div>
+        <input type="text" placeholder="Ваше ім'я *" class="form-input" required>
+      </div>
+      <div>
+        <input type="tel" placeholder="+38 (0__) ___-__-__ *" class="form-input" required>
+      </div>
+      <div class="form-group-full">
+        <select id="topicSelect" class="form-input">
+          <option value="Загальна консультація">Загальна консультація з підбору</option>
+          <option value="Drazice OKHE ONE 80">Drazice OKHE ONE 80</option>
+          <option value="Drazice OKCE 100">Drazice OKCE 100</option>
+          <option value="Drazice OKCE 200 S">Drazice OKCE 200 S</option>
+          <option value="Котёл Marten Premium 20 кВт">Котёл Marten Premium 20 кВт</option>
+          <option value="Пеллетный котёл FOCUS 25 кВт">Пеллетный котёл FOCUS 25 кВт</option>
+          <option value="Tenko Digital 6 кВт">Tenko Digital 6 кВт</option>
+          <option value="Könner&Söhnen KS 2000iS">Könner&Söhnen KS 2000iS</option>
+          <option value="Matari MDA9000SE">Matari MDA9000SE</option>
+          <option value="EcoFlow DELTA 2">EcoFlow DELTA 2</option>
+          <option value="Drazice NAD 500 v1">Drazice NAD 500 v1</option>
+          <option value="Теплоаккумулятор 1000 л">Теплоаккумулятор 1000 л</option>
+          <option value="Комплектуючі / ТЕНИ">Комплектуючі / ТЕНИ</option>
+        </select>
+      </div>
+      <div class="form-group-full">
+        <textarea placeholder="Ваше запитання або коментар..." class="form-input" rows="3" style="resize:none;"></textarea>
+      </div>
+      <button type="submit" class="submit-btn">Відправити запит у Telegram / Viber</button>
+    </div>
+    <div id="formAlert" class="alert-success">
+      Дякуємо! Перенаправляємо в месенджер...
+    </div>
+  </form>
+</section>
+
+<footer>
+  <div style="margin-bottom:1rem; display:flex; justify-content:center; gap:25px; flex-wrap:wrap; font-size:1rem;">
+    <span>📞 Телефон: <a href="tel:+380935654438" style="color:#c5a059; font-weight:700; text-decoration:none;">+38 (093) 565-44-38</a></span>
+    <span>💬 Telegram: <a href="https://t.me/+380935654438" target="_blank" style="color:#229ed9; font-weight:700; text-decoration:none;">Написати</a></span>
+    <span>💬 Viber: <a href="viber://chat?number=%2B380935654438" style="color:#7360f2; font-weight:700; text-decoration:none;">Написати</a></span>
+  </div>
+  <p>© 2026 Енергія Store. Каталог кліматичного обладнання та генераторів. Всі права захищено.</p>
+</footer>
+
+<script>
+function filterCategory(cat, btn) {
+  const buttons = document.querySelectorAll('.filter-btn');
+  buttons.forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+
+  const cards = document.querySelectorAll('.card');
+  cards.forEach(card => {
+    if (cat === 'all' || card.getAttribute('data-category') === cat) {
+      card.style.display = 'flex';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+
+function filterProducts() {
+  const input = document.getElementById('searchInput').value.toLowerCase();
+  const cards = document.querySelectorAll('.card');
+  cards.forEach(card => {
+    const text = card.innerText.toLowerCase();
+    if (text.includes(input)) {
+      card.style.display = 'flex';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+
+function directOrderTelegram(productName, price) {
+  const msg = encodeURIComponent("Доброго дня! Мене цікавить товар: " + productName + " (" + price + "). Зв'яжіться зі мною. Контактний номер: +38 (093) 565-44-38");
+  window.open("https://t.me/+380935654438?text=" + msg, "_blank");
+}
+
+function directOrderViber(productName, price) {
+  const msg = encodeURIComponent("Доброго дня! Мене цікавить товар: " + productName + " (" + price + "). Зв'яжіться зі мною. Контактний номер: +38 (093) 565-44-38");
+  window.open("viber://chat?number=%2B380935654438", "_blank");
+}
+
+function scrollToForm(productName) {
+  const formEl = document.getElementById('feedback-form');
+  const selectEl = document.getElementById('topicSelect');
+  if (selectEl && productName) {
+    let found = false;
+    for (let option of selectEl.options) {
+      if (option.value.toLowerCase().includes(productName.toLowerCase()) || productName.toLowerCase().includes(option.value.toLowerCase())) {
+        selectEl.value = option.value;
+        found = true;
+        break;
+      }
+    }
+    if (!found) {
+      selectEl.value = "Загальна консультація";
+    }
+  }
+  formEl.scrollIntoView({ behavior: 'smooth' });
+}
+
+function handleFeedbackSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
+  const name = form.querySelector('input[type="text"]').value;
+  const phone = form.querySelector('input[type="tel"]').value;
+  const topic = document.getElementById('topicSelect').value;
+  const comment = form.querySelector('textarea').value;
+  const alertBox = document.getElementById('formAlert');
+
+  const msg = "Нова заявка з сайту:
+
+Ім'я: " + name + "
+Телефон: " + phone + "
+Товар / Тема: " + topic + "
+Коментар: " + (comment || "не вказано");
+  const url = "https://t.me/+380935654438?text=" + encodeURIComponent(msg);
+
+  alertBox.innerText = "Дякуємо! Перенаправляємо в Telegram...";
+  alertBox.style.display = 'block';
+  setTimeout(() => {
+    window.open(url, '_blank');
+    form.reset();
+    alertBox.style.display = 'none';
+  }, 800);
+}
+</script>
+</body>
+</html>
