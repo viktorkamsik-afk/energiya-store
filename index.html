@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Каталог опалювального обладнання, бойлерів, акумулюючих баків і ТЕНів — ЕНЕРГІЯ STORE.">
+  <title>ЕНЕРГІЯ STORE — каталог обладнання</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="contacts.js" defer></script>
+  <script src="products.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="top-bar">
+    <div class="top-message"><strong>ЕНЕРГІЯ STORE</strong><span>Каталог обладнання та допомога з підбором</span></div>
+    <div class="top-contacts"><a data-contact="phoneLink" href="tel:+380935654438">+38 (093) 565-44-38</a><a data-contact="telegram" href="https://t.me/+380935654438" target="_blank" rel="noopener">Telegram</a><a data-contact="viber" href="viber://chat?number=%2B380935654438">Viber</a></div>
+  </div>
+  <header>
+    <div class="header-container">
+      <a href="#top" class="logo" id="top"><span>ЕНЕРГІЯ STORE</span></a>
+      <div class="search-bar"><input type="search" id="searchInput" placeholder="Пошук моделі або виробника…" aria-label="Пошук товарів"><button type="button" id="searchButton">Шукати</button></div>
+      <nav class="nav-links"><a href="#catalog" class="nav-btn btn-tel-header">Каталог</a><a data-contact="telegram" href="https://t.me/+380935654438" target="_blank" rel="noopener" class="nav-btn btn-tg-header">Telegram</a><a data-contact="viber" href="viber://chat?number=%2B380935654438" class="nav-btn btn-viber-header">Viber</a></nav>
+    </div>
+  </header>
+  <main>
+    <section class="catalog-section" id="catalog">
+      <div class="section-header"><h1>ЕНЕРГІЯ STORE</h1><p>Оберіть категорію обладнання</p></div>
+      <div class="category-tiles" id="categoryTiles">
+        <button class="category-tile" type="button" data-category="boilers"><img src="kotel.jpg" alt="Котли"><span>Котли</span></button>
+        <button class="category-tile" type="button" data-category="generators"><img src="generator.jpg" alt="Генератори"><span>Генератори</span></button>
+        <button class="category-tile" type="button" data-category="waterheaters"><img src="boiler.jpg" alt="Бойлери"><span>Бойлери</span></button>
+        <button class="category-tile" type="button" data-category="tanks"><img src="bak.jpg" alt="Акумулюючі баки"><span>Акумулюючі баки</span></button>
+        <button class="category-tile" type="button" data-category="parts"><img src="teny.jpg" alt="ТЕНи та комплектуючі"><span>ТЕНи та комплектуючі</span></button>
+      </div>
+      <div class="catalog-navigation" id="catalogNavigation" hidden><button class="back-button" id="backButton" type="button">← Усі категорії</button><h2 id="catalogViewTitle">Оберіть виробника</h2><p id="catalogViewHint">Натисніть на виробника, щоб побачити моделі.</p><div class="brand-grid" id="brandGrid"></div></div>
+      <p class="catalog-note" id="catalogNote">Ціни відображені за даними постачальника та можуть змінюватися. Перед замовленням уточніть наявність.</p>
+      <div class="grid-showcase" id="productGrid" hidden></div>
+      <p class="empty-state" id="emptyState" hidden>У цій категорії моделі ще додаються. Уточніть наявність у постачальника.</p>
+    </section>
+    <section class="contact-panel" id="contactPanel"><h2>Потрібна допомога з вибором?</h2><p>Напишіть нам назву моделі або поставте запитання щодо характеристик і наявності.</p><div class="contact-actions"><a data-contact="telegram" href="https://t.me/+380935654438" target="_blank" rel="noopener" class="contact-button telegram-button">Написати в Telegram</a><a data-contact="viber" href="viber://chat?number=%2B380935654438" class="contact-button viber-button">Написати у Viber</a><a data-contact="phoneLink" href="tel:+380935654438" class="contact-button phone-button">Зателефонувати</a></div></section>
+  </main>
+  <footer><p>© 2026 ЕНЕРГІЯ STORE. Каталог опалювального обладнання.</p><p>Перед оформленням замовлення уточнюйте актуальну ціну та наявність.</p></footer>
+</body>
+</html>
