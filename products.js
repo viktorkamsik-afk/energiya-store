@@ -1935,5 +1935,27 @@ window.PRODUCTS = [
       "Електричне підключення: 3×230 В / 50 Гц"
     ],
     "price": "24 128 грн"
-  }
+  },
+  {
+  "id": "bluetti-ac50p",
+  "category": "generators",
+  "brand": "BLUETTI",
+  "model": "AC50P",
+  "name": "Портативна зарядна станція BLUETTI AC50P",
+  "specs": [
+    "Модель: AC50P"
+  ],
+  "price": "18 599 грн"
+},
+{
+  "id": "oscal-powermax-1800-se",
+  "category": "generators",
+  "brand": "OSCAL",
+  "model": "PowerMax 1800 SE",
+  "name": "Портативна зарядна станція OSCAL PowerMax 1800 SE",
+  "specs": [
+    "Модель: PowerMax 1800 SE"
+  ],
+  "price": "25 899 грн"
+}
 ];
