@@ -1948,14 +1948,53 @@ window.PRODUCTS = [
   "price": "18 599 грн"
 },
 {
-  "id": "oscal-powermax-1800-se",
-  "category": "generators",
-  "brand": "OSCAL",
-  "model": "PowerMax 1800 SE",
-  "name": "Портативна зарядна станція OSCAL PowerMax 1800 SE",
-  "specs": [
-    "Модель: PowerMax 1800 SE"
-  ],
-  "price": "25 899 грн"
+"id": "oscal-powermax-1800-se",
+"category": "generators",
+"brand": "OSCAL",
+"model": "PowerMax 1800 SE",
+"name": "Портативна зарядна станція OSCAL PowerMax 1800 SE",
+"specs": [
+"Модель: PowerMax 1800 SE"
+],
+"price": "25 899 грн"
+},
+{
+"id": "honda-eu20it1",
+"category": "generators",
+"brand": "HONDA",
+"model": "EU20IT1",
+"name": "Бензиновий генератор HONDA EU20IT1 2,0/2,2 кВт",
+"specs": [
+"Тип: бензиновий генератор",
+"Номінальна потужність: 2,0 кВт",
+"Максимальна потужність: 2,2 кВт"
+],
+"price": "11 000 грн"
+},
+{
+"id": "honda-eg4000s",
+"category": "generators",
+"brand": "HONDA",
+"model": "EG4000S",
+"name": "Бензиновий генератор HONDA EG4000S 3,5/4,0 кВт",
+"specs": [
+"Тип: бензиновий генератор",
+"Номінальна потужність: 3,5 кВт",
+"Максимальна потужність: 4,0 кВт"
+],
+"price": "14 000 грн"
+},
+{
+"id": "honda-eu4500i",
+"category": "generators",
+"brand": "HONDA",
+"model": "EU4500i",
+"name": "Інверторний бензиновий генератор HONDA EU4500i 4,5/5,0 кВт",
+"specs": [
+"Тип: інверторний бензиновий генератор",
+"Номінальна потужність: 4,5 кВт",
+"Максимальна потужність: 5,0 кВт"
+],
+"price": "28 000 грн"
 }
 ];
